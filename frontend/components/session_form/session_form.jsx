@@ -30,20 +30,20 @@ class SessionForm extends React.Component {
         let formSubmit;
         let link;
         if (this.props.formType === 'signup') {
-            formHead = 'Sign up for Flickr';
+            formHead = 'Sign up for Cam Clickr';
             formSubmit = 'Sign up'
             link = (
                 <div>
-                    <p>Already a Flickr member?</p>
+                    <p>Already a Cam Clickr member?</p>
                     <Link to='/login'>Log in here.</Link>
                 </div>
             );
         } else {
-            formHead = 'Log in to Flickr';
+            formHead = 'Log in to Cam Clickr';
             formSubmit = 'Sign in'
             link = (
                 <div>
-                    <p>Not a Flickr member?</p>
+                    <p>Not a Cam Clickr member?</p>
                     <Link to='/signup'>Sign up here.</Link>
                 </div>
             );
