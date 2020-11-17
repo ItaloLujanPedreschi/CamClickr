@@ -7,7 +7,8 @@ export default ({ currentUser, logout }) => {
     const startForFree = <Link to="/signup">Start for free</Link>
     const display = currentUser ? (
         <div>
-            <h1>Hi {currentUser.username}</h1>
+            <h1>Hi {currentUser.fname}</h1>
+            <button onClick={logout}>Log out</button>
         </div>
     ) : (
         <div>

@@ -52,28 +52,38 @@ class SessionForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 {formHead}
+                {this.props.formType === 'signup' ? (
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="First name"
+                            value={this.state.fname}
+                            onChange={this.update("fname")}
+                            />
+                        <input
+                            type="text"
+                            placeholder="Last name"
+                            value={this.state.lname}
+                            onChange={this.update("lname")}
+                            />
+                        <input
+                            type="text"
+                            placeholder="Your age"
+                            value={this.state.age}
+                            onChange={this.update("age")}
+                        />
+                    </div>
+                ) : (null)
+                }
                 <input
                     type="text"
-                    value={this.state.fname}
-                    onChange={this.update("fname")}
-                />
-                <input
-                    type="text"
-                    value={this.state.lname}
-                    onChange={this.update("lname")}
-                />
-                <input
-                    type="text"
-                    value={this.state.age}
-                    onChange={this.update("age")}
-                />
-                <input
-                    type="text"
+                    placeholder="Email address"
                     value={this.state.email}
                     onChange={this.update("email")}
                 />
                 <input
                     type="password"
+                    placeholder="Password"
                     value={this.state.password}
                     onChange={this.update("password")}
                 />
