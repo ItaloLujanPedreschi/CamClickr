@@ -8,7 +8,7 @@ import SignupFormContainer from './components/session_form/signup_form_container
 import LoginFormContainer from './components/session_form/login_form_container';
 
 const App = () => (
-    <div className="body">
+    <div className="body background">
         <header>
             <Switch>
                 <Route exact path="/" component={HomeHeaderContainer} />

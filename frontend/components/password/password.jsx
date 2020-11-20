@@ -1,4 +1,5 @@
 import React from 'react';
+import { BiShow, BiHide } from 'react-icons/bi';
 
 class Password extends React.Component {
     constructor(props) {
@@ -25,23 +26,21 @@ class Password extends React.Component {
         console.log(errorsString);
         return (
             <div className={errorsString.includes('Password') ? "password-input-container error" : "password-input-container"}>
-                <div>
-                    <input
-                        className="password-input"
-                        type={this.state.hidden ? 'password' : 'text'}
-                        id="password"
-                        value={this.state.password}
-                        onChange={this.updatePassword}
-                    />
-                    <label
-                        className="signup-form-label cursor-text unselectable"
-                        htmlFor="password"
-                    >Password</label>
-                </div>
-                <button 
-                    className={this.state.hidden ? "password-toggle password-toggle-show" : "password-toggle password-toggle-hide"}
+                <input
+                    className="password-input"
+                    type={this.state.hidden ? 'password' : 'text'}
+                    id="password"
+                    value={this.state.password}
+                    onChange={this.updatePassword}
+                />
+                <label
+                    className="signup-form-label cursor-text unselectable"
+                    htmlFor="password"
+                >Password</label>
+                <button
+                    className={this.state.hidden ? "password-toggle" : "password-toggle"}
                     onClick={this.togglePassword}
-                >{this.state.hidden ? 'Show' : 'Hide'}</button>
+                >{this.state.hidden ? <BiShow className="icon" /> : <BiHide className="icon" />}</button>
             </div>
         );
     }

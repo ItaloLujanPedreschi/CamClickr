@@ -8,7 +8,7 @@ export default ({ currentUser, logout, demoLogin }) => {
     const header = currentUser ? "logged-in-home-header" : "logged-out-home-header";
     const display = currentUser ? (
         <div className="home-logged-in-header">
-            <Link className="home" to="/">cam clickr</Link>
+            <Link className="home unselectable" to="/">cam clickr</Link>
             <div>
                 <h1 className="greeting">Hi {currentUser.fname}</h1>
                 <button className="logout" onClick={logout}>Log out</button>
@@ -16,7 +16,7 @@ export default ({ currentUser, logout, demoLogin }) => {
         </div>
     ) : (
         <div className="home-logged-out-header">
-            <Link className="home" to="/">cam clickr</Link>
+            <Link className="home unselectable" to="/">cam clickr</Link>
             <div className="login-signup">
                 <button
                     className="demo-login cursor-button"

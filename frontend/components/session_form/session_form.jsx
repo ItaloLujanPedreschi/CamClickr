@@ -6,47 +6,51 @@ class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            fname: "",
-            lname: "",
-            age: "",
-            email: "",
-            password: ""
-        }
+            form: {
+                fname: "",
+                lname: "",
+                age: "",
+                email: "",
+                password: ""
+            },
+            errors: []
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.setErrors = this.setErrors.bind(this);
+        this.processErrors = this.processErrors.bind(this);
+    }
+
+    processErrors(id) {
+        for (let i = 0; i < this.state.errors.length; i++) {
+            let currentError = this.state.errors[i];
+            let checkError = currentError.toLowerCase();
+            if (checkError.includes(id)) {
+                let newErrors = Array.from(this.state.errors);
+                newErrors.splice(i, 1);
+                this.setState({ errors: newErrors });
+            }
+        };
     }
 
     update(field) {
-        console.log(this.props.errors);
-        debugger;
         return e => {
-            for (let i = 0; i < this.props.errors.length; i++) {
-                if (this.props.errors[i].includes(e.target.id)) {
-                    this.props.errors.splice(i, 1);
+            this.setState(prevState => ({
+                ...prevState,
+                form: {
+                    ...prevState.form,
+                    [field]: e.target.value
                 }
-            };
-            this.setState({ [field]: e.target.value });
+            }), this.processErrors(e.target.id));
         }
     }
 
-    // handleErrors() {
-    //     for (let i = 0; i < this.props.errors.length; i++) {
-    //         if (this.props.errors[i].split('Fname').length > 1) {
-    //             return 
-    //         } else if (this.props.errors[i].split('Lname').length > 1) {
-
-    //         } else if (this.props.errors[i].split('Age').length > 1) {
-
-    //         } else if (this.props.errors[i].split('Email').length > 1) {
-
-    //         } else if (this.props.errors[i].split('Password').length > 1) {
-
-    //         }
-    //     };
-    // }
+    setErrors(errors) {
+        this.setState({ errors });
+    }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state);
+        this.props.processForm(this.state.form).then(null, errors => this.setErrors(errors.errors));
     }
 
     render() {
@@ -83,7 +87,7 @@ class SessionForm extends React.Component {
             );
         }
 
-        const errorsString = this.props.errors.join(" ");
+        const errorsString = this.state.errors.join(" ");
 
         return (
             <div className="form-container">
@@ -99,7 +103,7 @@ class SessionForm extends React.Component {
                                         className="text-inputs"
                                         type="text"
                                         id="fname"
-                                        value={this.state.fname}
+                                        value={this.state.form.fname}
                                         onChange={this.update("fname")}
                                     />
                                     <label
@@ -112,7 +116,7 @@ class SessionForm extends React.Component {
                                         className="text-inputs"
                                         type="text"
                                         id="lname"
-                                        value={this.state.lname}
+                                        value={this.state.form.lname}
                                         onChange={this.update("lname")}
                                     />
                                     <label
@@ -125,7 +129,7 @@ class SessionForm extends React.Component {
                                         className="text-inputs"
                                         type="number"
                                         id="age"
-                                        value={this.state.age}
+                                        value={this.state.form.age}
                                         onChange={this.update("age")}
                                     />
                                     <label
@@ -141,7 +145,7 @@ class SessionForm extends React.Component {
                                 className="text-inputs"
                                 type="text"
                                 id="email"
-                                value={this.state.email}
+                                value={this.state.form.email}
                                 onChange={this.update("email")}
                             />
                             <label

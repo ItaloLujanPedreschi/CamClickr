@@ -16,13 +16,17 @@
 
 body {
     margin: 0;
-    font-family: Helvetica, sans-serif;
     background-color: skyblue;
+    font-family: Helvetica, sans-serif;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
+}
+
+.background {
+    background-image: url("./../images/elephant-1.jpg");
 }
 
 .root {
@@ -120,6 +124,11 @@ button:focus {
     width: 980px;
     height: 48px;
     margin: 0 auto;
+}
+
+.icon {
+    font-size: 32px;
+    color: rgba(126, 126, 126, 1);
 }
 
 .home {
@@ -250,13 +259,14 @@ button:focus {
 }
 
 .password-toggle {
-    position: relative;
-    right: 50px;
+    position: absolute;
+    top: 11px;
+    left: 218px;
     background-color: transparent;
-    height: 100%;
-    width: 100%;
-    padding-top: 19px;
-    padding-bottom: 20px;
+    height: auto;
+    width: auto;
+    padding-top: auto;
+    padding-bottom: auto;
     border: 0;
     cursor: pointer;
 }
@@ -314,27 +324,18 @@ hr.solid {
     cursor: pointer;
 }
 
-/* .password-toggle-show {
-    background-image: url(/images/password_show.png);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    height: 25px;
-    width: 100px;
-    border: none;
-} */
-
-/* .password-toggle-hide {
-    background-image: url(./../../assets/images/password_hide.png);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    height: 25px;
-    width: 100px;
-    border: none;
-} */
-
 label {
     position: absolute;
     transition: 0.2s;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+input[type="number"] {
+   -moz-appearance: textfield;
 }
 
 .text-inputs + label {
@@ -418,6 +419,10 @@ div.error input.password-input {
     color: rgb(215, 33, 42);
     content: "Required";
     font-size: 12px;
-    margin: 12px 0 12px 0;
+    margin: 8px 0 8px 0;
     left: 16px;
+}
+
+.password-input:focus + button {
+    color: rgb(46, 129, 214);
 }

@@ -8,13 +8,13 @@ export default ({ currentUser, logout }) => {
     // const startForFree = <Link to="/signup">Start for free</Link>
     const display = currentUser ? (
         <div className="logged-in-header">
-            <Link className="home" to="/">cam clickr</Link>
+            <Link className="home unselectable" to="/">cam clickr</Link>
             <h1>Hi {currentUser.fname}</h1>
             <button className="logout" onClick={logout}>Log out</button>
         </div>
     ) : (
         <div className="logged-out-header">
-            <Link className="home" to="/">cam clickr</Link>
+            <Link className="home unselectable" to="/">cam clickr</Link>
             <div className="login-signup">
                 {login}
                 {signup}
