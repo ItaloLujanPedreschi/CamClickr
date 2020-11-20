@@ -223,41 +223,6 @@ button:focus {
     z-index: 1;
 }
 
-.password-input-container {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    
-}
-
-.password-input {
-    background-color: transparent;
-    display: block;
-    padding: 27px 16px 7px 16px;
-    border-style: solid;
-    border-radius: 5px;
-    border-width: 1px;
-    border-color: rgba(126, 126, 126, 1);
-    margin: 0;
-    width: 238px;
-    height: 20px;
-}
-
-.password-input[value=""] {
-    background-color: transparent;
-    display: block;
-    padding: 27px 16px 7px 16px;
-    border-style: solid;
-    border-radius: 5px;
-    border-width: 1px;
-    border-color: rgba(126, 126, 126, 1);
-    margin: 0;
-    width: 238px;
-    height: 20px;
-}
-
 .password-toggle {
     position: absolute;
     top: 11px;
@@ -343,15 +308,6 @@ input[type="number"] {
     font-size: 12px;
 }
 
-.password-input + label {
-    top: 10px;
-    font-size: 12px;
-}
-
-.password-input[value=""] + label {
-    font-size: 16px;
-}
-
 .signup-form-label {
     position: absolute;
     color: rgba(126, 126, 126, 1);
@@ -367,25 +323,6 @@ input[type="number"] {
     top: 19px;
 }
 
-.password-input[value=""] + label {
-    font-size: 16px;
-    position: absolute;
-    color: rgba(126, 126, 126, 1);
-    left: 18px;
-    top: 19px;
-}
-
-.password-input:focus {
-    border-color: rgb(46, 129, 214);
-    border-width: 1px;
-}
-
-.password-input:focus + label {
-    top: 10px;
-    color: rgb(46, 129, 214);
-    font-size: 12px;
-}
-
 .text-inputs:focus {
     border-color: rgb(46, 129, 214);
     border-width: 1px;
@@ -397,20 +334,29 @@ input[type="number"] {
     font-size: 12px;
 }
 
+.text-inputs:focus + button.password-toggle > svg {
+    color: rgb(46, 129, 214);
+}
+
 .text-inputs {
     font-size: 16px;
 }
 
 div.error label.signup-form-label {
     color: rgb(215, 33, 42);
+    
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 div.error input.text-inputs {
     border-color: rgb(215, 33, 42);
 }
 
-div.error input.password-input {
-    border-color: rgb(215, 33, 42);
+div.error button.password-toggle svg {
+    color: rgb(215, 33, 42);
 }
 
 .error:after {
@@ -423,6 +369,24 @@ div.error input.password-input {
     left: 16px;
 }
 
-.password-input:focus + button {
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.form-input:focus-within button svg {
     color: rgb(46, 129, 214);
 }

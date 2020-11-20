@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Password from './../password/password';
+import { BiShow, BiHide } from 'react-icons/bi';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -13,11 +13,13 @@ class SessionForm extends React.Component {
                 email: "",
                 password: ""
             },
-            errors: []
+            errors: [],
+            hidden: true
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.setErrors = this.setErrors.bind(this);
         this.processErrors = this.processErrors.bind(this);
+        this.togglePassword = this.togglePassword.bind(this);
     }
 
     processErrors(id) {
@@ -33,6 +35,7 @@ class SessionForm extends React.Component {
     }
 
     update(field) {
+        // debugger;
         return e => {
             this.setState(prevState => ({
                 ...prevState,
@@ -42,6 +45,11 @@ class SessionForm extends React.Component {
                 }
             }), this.processErrors(e.target.id));
         }
+    }
+
+    togglePassword(e) {
+        e.preventDefault();
+        this.setState({ hidden: !this.state.hidden })
     }
 
     setErrors(errors) {
@@ -153,7 +161,23 @@ class SessionForm extends React.Component {
                                 htmlFor="email"
                             >Email address</label>
                         </div>
-                        <Password errors={this.props.errors} />
+                        <div className={errorsString.includes('Password') ? "form-input error" : "form-input"}>
+                            <input
+                                className="text-inputs"
+                                type={this.state.hidden ? 'password' : 'text'}
+                                id="password"
+                                value={this.state.form.password}
+                                onChange={this.update("password")}
+                            />
+                            <label
+                                className="signup-form-label cursor-text unselectable"
+                                htmlFor="password"
+                            >Password</label>
+                            <button
+                                className="password-toggle"
+                                onClick={this.togglePassword}
+                            >{this.state.hidden ? <BiShow className="icon" /> : <BiHide className="icon" />}</button>
+                        </div>
                         <input
                         className="cursor-button"
                             type="submit"
