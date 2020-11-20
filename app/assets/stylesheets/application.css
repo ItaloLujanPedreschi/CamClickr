@@ -382,7 +382,3 @@ div.error button.password-toggle svg {
     transform: translate3d(4px, 0, 0);
   }
 }
-
-.form-input:focus-within button svg {
-    color: rgb(46, 129, 214);
-}
