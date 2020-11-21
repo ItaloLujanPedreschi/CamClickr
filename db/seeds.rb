@@ -9,3 +9,7 @@
 User.destroy_all
 
 User.create({ fname: "demo", lname: "demo", age: 0, email: "demo@mail.com", password: "password" })
+
+Photo.destroy_all
+
+Photo.create({ user_id: User.first.id, description: "photo-1" })
