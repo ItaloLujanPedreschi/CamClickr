@@ -179,7 +179,7 @@ class SessionForm extends React.Component {
                             >{this.state.hidden ? <BiShow className="icon" /> : <BiHide className="icon" />}</button>
                         </div>
                         <input
-                        className="cursor-button"
+                            className="cursor-button"
                             type="submit"
                             value={formSubmit}
                         />

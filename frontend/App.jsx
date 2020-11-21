@@ -6,6 +6,8 @@ import HomeHeaderContainer from './components/header/home_header_container';
 import EmptyHeaderContainer from './components/header/empty_header_container';
 import SignupFormContainer from './components/session_form/signup_form_container';
 import LoginFormContainer from './components/session_form/login_form_container';
+import PhotosIndexContainer from './components/photos/photos_index_container';
+import PhotoFormContainer from './components/photos/photo_form_container';
 
 const App = () => (
     <div className="body background">
@@ -19,6 +21,8 @@ const App = () => (
         </header>
         <AuthRoute path="/signup" component={SignupFormContainer} />
         <AuthRoute path="/login" component={LoginFormContainer} />
+        <Route exact path="/photos" component={PhotosIndexContainer} />
+        <Route path="/photos/upload" component={PhotoFormContainer} />
     </div>
 );
 
