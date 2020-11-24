@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default ({ currentUser, logout }) => {
+export default () => {
     return (
         <div className="header">
             <div className="logged-out-header">

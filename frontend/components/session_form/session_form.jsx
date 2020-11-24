@@ -35,7 +35,6 @@ class SessionForm extends React.Component {
     }
 
     update(field) {
-        // debugger;
         return e => {
             this.setState(prevState => ({
                 ...prevState,

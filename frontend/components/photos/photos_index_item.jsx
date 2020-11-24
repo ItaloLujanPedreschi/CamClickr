@@ -7,13 +7,18 @@ class PhotosIndexItem extends React.Component {
     }
 
     render() {
-        const { photo } = this.props;
+        const { photo, displayName } = this.props;
         return (
             <div className="photo-item">
-                <Link to={`/photos/${photo.id}`}>
+                <Link to={`/photos/${displayName}/${photo.id}/explore`}>
                     <img src={photo.photoUrl}  alt={photo.description}/>
                 </Link>
-                <p>{photo.description}</p>
+                <div className="photo-overlay">
+                    <p className="photo-title">{photo.title}</p>
+                    <Link className="photo-user-link" to={`/photos/${photo.user_id}`}>
+                        by {displayName}
+                    </Link>
+                </div>
             </div>
         );
     }

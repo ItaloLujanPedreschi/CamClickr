@@ -5,7 +5,7 @@ class Api::PhotosController < ApplicationController
     end
 
     def show
-        @photo = photos.find_by(id: params[:id])
+        @photo = Photo.find_by(id: params[:id])
         render :show
     end
 
@@ -35,6 +35,6 @@ class Api::PhotosController < ApplicationController
 
     private
     def photo_params
-        params.require(:photo).permit(:user_id, :description)
+        params.require(:photo).permit(:user_id, :title, :description)
     end
 end

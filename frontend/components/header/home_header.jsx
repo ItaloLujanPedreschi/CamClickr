@@ -9,10 +9,21 @@ export default ({ currentUser, logout, demoLogin }) => {
     const display = currentUser ? (
         <div className="home-logged-in-header">
             <Link className="home unselectable" to="/">cam clickr</Link>
-            <div>
-                <h1 className="greeting">Hi {currentUser.fname}</h1>
-                <button className="logout" onClick={logout}>Log out</button>
-            </div>
+            <ul className="home-nav">
+                <li className="home-nav-item"><Link className="unselectable" to={`/photos/${currentUser.id}`}>You</Link></li>
+                <li className="home-nav-item"><Link className="unselectable" to="/explore">Explore</Link></li>
+            </ul>
+            <ul className="user-actions-list">
+                <li>
+                    <Link to="/photos/upload">Upload</Link>
+                </li>
+                <li>
+                    <h1>Hi {currentUser.fname}</h1>
+                    <div className="dropdown">
+                        <Link to="/login" className="logout" onClick={() => logout()}>Log out</Link>
+                    </div>
+                </li>
+            </ul>
         </div>
     ) : (
         <div className="home-logged-out-header">
