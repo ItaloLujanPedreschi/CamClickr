@@ -1,10 +1,10 @@
 import React from 'react';
 
-class PhotoFormItem {
+class PhotoFormItem extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-            title: this.props.file.file,
+            title: this.props.file.file.name,
             description: ""
         }
         this.hideClose = this.hideClose.bind(this);
@@ -23,44 +23,34 @@ class PhotoFormItem {
 
     render() {
         const { file } = this.props;
-        let style = {
-            marginTop: '14px',
-            backgroundImage: 'url(' + file.url + ')',
-            backgroundSize: '169px',
-            minWidth: '169px',
-            minHeight: '94px',
-            maxHeight: '130px',
-            backgroundRepeat: 'no-repeat',
-        }
         return (
             <button
-                className={`previewBox-${file.idx}`}
-                onClick={this.props.selectSelf(file.idx)}>
-                <div
-                    id={`removeImage-${file.idx}`}
+                className={`thumbnails-container-${file.index}`}
+                onClick={this.props.select(file.index)}>
+                {/* <div
+                    id={`removeImage-${file.index}`}
                     className='hidden'>
-                </div>
+                </div> */}
                 <div
-                    className={`thumbnail-${file.idx}`}
-                    style={style}
-                    name={file.idx}
-                    // onMouseEnter={this.revealXbutton(file.idx)}
-                    // onMouseLeave={this.hideXbutton(file.idx)}
+                    className={`thumbnail-${file.index}`}
+                    // style={style}
+                    name={file.index}
+                    // onMouseEnter={this.revealXbutton(file.index)}
+                    // onMouseLeave={this.hideXbutton(file.index)}
                 >
+                    <img src={file.url} />
                 </div>
-                <div className="uploadInput-wrapper">
+                <div className="upload-inputs">
                     <input
                         type="text"
-                        className="uploadInputs"
                         defaultValue={this.state.title}
-                        onChange={this.props.updateInput(file.idx)}
+                        onChange={this.props.handleInput(file.index, "titles")}
                     />
-                    <input
-                        type="textarea"
-                        className="uploadInputs"
-                        defaultValue="Add a description"
-                        onChange={this.props.updateInput(file.idx)}
-                    />
+                    <textarea
+                        rows="2"
+                        placeholder="Add a description"
+                        onChange={this.props.handleInput(file.index, "descriptions")}
+                    ></textarea>
                 </div>
             </button>
         )
@@ -68,4 +58,4 @@ class PhotoFormItem {
 
 }
 
-export default PhotoUploadItem;
+export default PhotoFormItem;

@@ -10,6 +10,9 @@ class PhotoForm extends React.Component {
             descriptions: [],
             selected: null
         };
+        this.deselect = this.deselect.bind(this);
+        this.select = this.select.bind(this);
+        this.deleteThumbnail = this.deleteThumbnail.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,9 +21,9 @@ class PhotoForm extends React.Component {
     deselect(e) {
         e.preventDefault();
         e.stopPropagation();
-        const selectedImages = document.getElementsByClassName("selectedThumbnail");
+        const selectedImages = document.getElementsByClassName("selected-thumbnail");
         Array.from(selectedImages).map(image => {
-            return image.classList.remove("selectedThumbnail");
+            return image.classList.remove("selected-thumbnail");
         });
         this.setState({ selected: null });
     }
@@ -30,9 +33,8 @@ class PhotoForm extends React.Component {
             e.preventDefault();
             // e.stopPropagation();
             const image = document.getElementsByClassName(`thumbnail-${id}`);
-            debugger; // see image
             this.deselect(e);
-            image[0].classList.add("selectedThumbnail")
+            image[0].classList.add("selected-thumbnail")
             this.setState({ selected: id });
         };
     }
@@ -41,97 +43,120 @@ class PhotoForm extends React.Component {
         const nextState = Object.assign({}, this.state)
         const index = this.state.selected;
         delete nextState.files[index];
-        delete nextState.title[index];
-        delete nextState.description[index];
+        delete nextState.titles[index];
+        delete nextState.descriptions[index];
+        nextState.selected = null;
         this.setState(nextState);
     }
 
-    handleInput(id) {
-        debugger; // check what e is
+    handleInput(id, field) {
         return (e) => {
+            e.preventDefault();
             let nextState = Object.assign({}, this.state);
-            nextState.titles[id] = { idx: id, value: e.target.value }
+            nextState[field][id] = { index: id, value: e.target.value }
             this.setState(nextState);
         }
     }
 
     handleFile(e) {
         const nextState = Object.assign({}, this.state);
-        const uploadFile = e.target.file;
-
+        const uploadFile = e.currentTarget.files;
+        let i = 0;
+        let j = 0;
+        while (i < uploadFile.length) {
+            if (nextState.files[j] !== undefined) {
+                j++;
+            } else {
+                nextState.files[j] = {
+                    file: uploadFile[i],
+                    url: URL.createObjectURL(uploadFile[i]),
+                    index: j
+                }
+                nextState.titles[j] = {
+                    value: ""
+                }
+                nextState.descriptions[j] = {
+                    value: ""
+                }
+                i++;
+            }
+        }
         this.setState({ photoFile: e.target.files[0] })
     }
 
     handleSubmit(e) {
-        this.props.postPhoto(state);
+        const state = this.state;
+        let filesUploaded = 0;
+        while (filesUploaded < state.files.length) {
+            let photoInfo = new FormData();
+            photoInfo.append("photo[image]", state.files[filesUploaded].file);
+            photoInfo.append("photo[title]", state.titles[filesUploaded].value === "" ? "Untitled" : state.titles[filesUploaded].value);
+            photoInfo.append("photo[description]", state.descriptions[filesUploaded].value === "" ? "No Description" : state.descriptions[filesUploaded].value);
+            this.props.postPhoto(photoInfo)
+                .then(filesUploaded++);
+        }
+        if (filesUploaded === state.files.length) {
+            this.props.history.push(`/photos/${this.props.currentUser.id}`);
+        }
     }
 
     render() {
         const thumbnails = this.state.files.map(file => {
             return (
                 <PhotoFormItem
+                    key={file.index}
                     file={file}
-                    key={file.idx}
+                    deselect={this.deselect}
+                    select={this.select}
+                    handleInput={this.handleInput}
                 />
             );
         })
 
+        const numPhotos = this.state.files.filter(Boolean).length;
+        let disableButton;
+        (this.state.selected === null) ? disableButton = true : disableButton = false;
+        let submitButtonText;
+        if (numPhotos === 0) {
+            submitButtonText = "Upload";
+        } else if (numPhotos === 1) {
+            submitButtonText = `Upload ${numPhotos} Photo`;
+        } else if (numPhotos > 1) {
+            submitButtonText = `Upload ${numPhotos} Photos`;
+        }
+
         return (
-            <div className="form-container">
-                <div className="toolBar">
-                        <div className="toolBar-left">
-                            <div className="grouping1" >
-                                <label className="menu-bar-add" htmlFor="add-button">
-                                    <div className="icon-add">Add</div>
-                                </label>
-
-                                <button
-                                    className="menu-bar-remove"
-                                    onClick={this.removeSelected}>
-                                    <div className="icon-remove" disabled={disableButton}>Remove</div>
-                                </button>
-
+            <div className="upload-form-container">
+                <div className="upload-bar">
+                    <div className="upload-bar-left">
+                        <div className="upload-add-remove">
+                            <div className="upload-add">
                                 <input
-                                    id="add-button"
+                                    id="add-photo-button"
                                     type="file"
                                     onChange={this.handleFile}
                                     multiple
                                 />
+                                <label htmlFor="add-photo-button">
+                                    <div className="add-image">Add</div>
+                                </label>
                             </div>
-
-                            <button className="menu-bar-size">
-                                <div className="icon-size">Size</div>
+                            <hr className="upload-add-remove-divider" />
+                            <button onClick={this.deleteThumbnail} disabled={disableButton}>
+                                <div className="remove-image">Remove</div>
                             </button>
-
-                            <button className="menu-bar-sort">
-                                <div className="icon-sort">Sort</div>
-                            </button>
-                            <button className="menu-bar-all">
-                                <div className="icon-all">All</div>
-                            </button>
-                            <button className="menu-bar-info">
-                                <div className="icon-info">Sort</div>
-                            </button>
-
-
                         </div>
-
-                        <label
-                            className="upload-label"
-                            htmlFor="upload-button"
-                            onClick={this.submitAllPhotos}>
-                            Upload {toBeUploaded} Photos
-                        </label>
                     </div>
-                <form className="content" onClick={this.deselectAll}>
-
-                    <div id="uploadSpread">
-                        {preview}
+                    <button
+                        className="upload-button"
+                        onClick={this.handleSubmit}
+                    >{submitButtonText}</button>
+                </div>
+                <form className="upload-display" onClick={this.deselectAll}>
+                    <div className="thumbnails-array">
+                        {thumbnails}
                     </div>
-
-
                 </form>
-                <div className="bottomBar"></div>
             </div>
         );
     }

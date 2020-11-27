@@ -13,7 +13,7 @@ class UserShow extends React.Component {
     render() {
         const { photos, user } = this.props;
         const userPhotos = photos.filter(photo => {
-            return photo.user_id === user.id;
+            return parseInt(photo.user_id) === user.id;
         });
         return (
             <div className="photo-array">

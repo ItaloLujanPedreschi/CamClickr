@@ -1,46 +1,78 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Greeting from './../greetings/greeting';
 
-export default ({ currentUser, logout, demoLogin }) => {
-    const demoUser = { email: "demo@mail.com", password: "password" };
-    const login = <Link className="login" to="/login">Log In</Link>
-    const signup = <Link className="signup" to="/signup">Sign Up</Link>
-    const header = currentUser ? "logged-in-home-header" : "logged-out-home-header";
-    const display = currentUser ? (
-        <div className="home-logged-in-header">
-            <Link className="home unselectable" to="/">cam clickr</Link>
-            <ul className="home-nav">
-                <li className="home-nav-item"><Link className="unselectable" to={`/photos/${currentUser.id}`}>You</Link></li>
-                <li className="home-nav-item"><Link className="unselectable" to="/explore">Explore</Link></li>
-            </ul>
-            <ul className="user-actions-list">
-                <li>
-                    <Link to="/photos/upload">Upload</Link>
-                </li>
-                <li>
-                    <h1>Hi {currentUser.fname}</h1>
-                    <div className="dropdown">
-                        <Link to="/login" className="logout" onClick={() => logout()}>Log out</Link>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    ) : (
-        <div className="home-logged-out-header">
-            <Link className="home unselectable" to="/">cam clickr</Link>
-            <div className="login-signup">
-                <button
-                    className="demo-login cursor-button"
-                    onClick={() => demoLogin(demoUser)}
-                >Demo Log In</button>
-                {login}
-                {signup}
+class HomeHeader extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleDropdown = this.handleDropdown.bind(this);
+    }
+
+    handleDropdown() {
+        document.getElementById("logout-dropdown").classList.toggle("show");
+        document.getElementById("logout-arrow-up").classList.toggle("show");
+    }
+
+    render() {
+        const { currentUser, logout, demoLogin } = this.props;
+
+        const demoUser = { email: "demo@mail.com", password: "password" };
+        const login = <Link className="login" to="/login">Log In</Link>
+        const signup = <Link className="signup" to="/signup">Sign Up</Link>
+        const header = currentUser ? "logged-in-home-header" : "logged-out-home-header";
+        const display = currentUser ? (
+            <div className="home-logged-in-header">
+                <div className="logo-area">
+                    <img src={`${window.logo}`} />
+                    <Link className="home unselectable" to="/">cam clickr</Link>
+                    <ul className="home-nav">
+                        <li className="home-nav-item"><Link className="unselectable" to={`/photos/${currentUser.id}`}>You</Link></li>
+                        <li className="home-nav-item"><Link className="unselectable" to="/explore">Explore</Link></li>
+                    </ul>
+                </div>
+                <ul className="user-actions-list">
+                    <li>
+                        <Link to="/photos/upload">
+                            <img src={`${window.uploadButton}`} />
+                        </Link>
+                    </li>
+                    <li>
+                        <button
+                            onClick={this.handleDropdown}
+                            className="dropdown-button"
+                        >Hi {currentUser.fname}</button>
+                        <div id="logout-arrow-up" className="arrow-up"></div>
+                        <div id="logout-dropdown" className="dropdown">
+                            <Greeting name={currentUser.fname} />
+                            <div className="user-actions-items">
+                                <Link to="/login" className="logout" onClick={() => logout()}>Log out</Link>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </div>
-    );
-    return (
-        <div className={header}>
-            {display}
-        </div>
-    );
+        ) : (
+                <div className="home-logged-out-header">
+                    <div className="logo-area">
+                        <img src={`${window.logo}`} />
+                        <Link className="home unselectable" to="/">cam clickr</Link>
+                    </div>
+                    <div className="login-signup">
+                        <button
+                            className="demo-login cursor-button"
+                            onClick={() => demoLogin(demoUser)}
+                        >Demo Log In</button>
+                        {login}
+                        {signup}
+                    </div>
+                </div>
+            );
+        return (
+            <div className={header}>
+                {display}
+            </div>
+        );
+    }
 }
+
+export default HomeHeader;

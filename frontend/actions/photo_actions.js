@@ -28,6 +28,7 @@ export const getPhoto = id => dispatch => PhotoAPIUtil.getPhoto(id)
         return photo;
     });
 
-export const postPhoto = photoForms => dispatch => PhotoAPIUtil.postPhoto(photoForms)
+export const postPhoto = photoForm => dispatch => PhotoAPIUtil.postPhoto(photoForm)
     .then(photos => dispatch(receivePhotos(photos)),
-        errors => dispatch(receivePhotoErrors(errors.responseJSON)));
+        errors => dispatch(receivePhotoErrors(errors.responseJSON)))
+;

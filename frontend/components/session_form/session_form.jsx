@@ -99,6 +99,7 @@ class SessionForm extends React.Component {
         return (
             <div className="form-container">
                 <form className="signup-form" onSubmit={this.handleSubmit}>
+                    <img src={`${window.logo}`} />
                     {formHead}
                     <div className="form-inputs">
                         {this.props.formType === 'signup' ? (

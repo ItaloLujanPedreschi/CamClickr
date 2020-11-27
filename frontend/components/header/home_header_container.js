@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
-import Greeting from './home_header';
+import HomeHeader from './home_header';
 
 const mapStateToProps = state => ({
     currentUser: state.entities.users[state.session.id]
@@ -14,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Greeting);
+)(HomeHeader);

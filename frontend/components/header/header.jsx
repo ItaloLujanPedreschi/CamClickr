@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Greeting from './../greetings/greeting';
 
 class Header extends React.Component {
     constructor(props) {
         super(props);
+        this.handleDropdown = this.handleDropdown.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
+    }
+
+    handleDropdown() {
+        document.getElementById("logout-dropdown").classList.toggle("show");
+        document.getElementById("logout-arrow-up").classList.toggle("show");
     }
 
     handleLogout() {
@@ -13,21 +20,39 @@ class Header extends React.Component {
     }
 
     render() {
-        const { currentUser } = this.props;
+        const { currentUser, logout, demoLogin } = this.props;
+
+        const demoUser = { email: "demo@mail.com", password: "password" };
         const login = <Link className="login" to="/login">Log In</Link>
         const signup = <Link className="signup" to="/signup">Sign Up</Link>
+        const header = currentUser ? "logged-in-home-header" : "logged-out-home-header";
         const display = currentUser ? (
-            <div className="logged-in-header">
-                <Link className="home unselectable" to="/">cam clickr</Link>
-                <Link className="home unselectable" to="/explore">Explore</Link>
+            <div className="home-logged-in-header">
+                <div className="logo-area">
+                    <img src={`${window.logo}`} />
+                    <Link className="home unselectable" to="/">cam clickr</Link>
+                    <ul className="home-nav">
+                        <li className="home-nav-item"><Link className="unselectable" to={`/photos/${currentUser.id}`}>You</Link></li>
+                        <li className="home-nav-item"><Link className="unselectable" to="/explore">Explore</Link></li>
+                    </ul>
+                </div>
                 <ul className="user-actions-list">
                     <li>
-                        <Link to="/photos/upload">Upload</Link>
+                        <Link to="/photos/upload">
+                            <img src={`${window.uploadButton}`} />
+                        </Link>
                     </li>
                     <li>
-                        <h1>Hi {currentUser.fname}</h1>
-                        <div className="dropdown">
-                            <Link to="/login" className="logout" onClick={this.handleLogout}>Log out</Link>
+                        <button
+                            onClick={this.handleDropdown}
+                            className="dropdown-button"
+                        >Hi {currentUser.fname}</button>
+                        <div id="logout-arrow-up" className="arrow-up"></div>
+                        <div id="logout-dropdown" className="dropdown">
+                            <Greeting name={currentUser.fname} />
+                            <div className="user-actions-items">
+                                <Link to="/login" className="logout" onClick={() => logout()}>Log out</Link>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -42,7 +67,7 @@ class Header extends React.Component {
                 </div>
             );
         return (
-            <div className="header">
+            <div className={header}>
                 {display}
             </div>
         );

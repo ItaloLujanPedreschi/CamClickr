@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CamClickr</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <script>
-      window.elephantUrl = "<%= image_url("elephant-1.jpg") %>"
-    </script>
-  </head>
+    <head>
+        <title>CamClickr</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        
+        <%= stylesheet_link_tag    'application', media: 'all' %>
+        <%= javascript_include_tag 'application' %>
+        <script>
+        window.elephantUrl = "<%= image_url("elephant-1.jpg") %>"
+        window.logo = "<%= image_url("upload-bar/flickr-logo.png") %>"
+        window.uploadButton = "<%= image_url("upload-bar/upload-icon.png") %>"
 
-  <body>
-    <%= yield %>
-  </body>
+        window.onclick = event => {
+            if (!event.target.matches('.dropdown-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown");
+                var arrows = document.getElementsByClassName("arrow-up");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    var arrow = arrows[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                    if (arrow.classList.contains('show')) {
+                        arrow.classList.remove('show');
+                    }
+                }
+            }
+        }
+        </script>
+    </head>
+
+    <body>
+        <%= yield %>
+    </body>
 </html>
