@@ -61,6 +61,10 @@ class Header extends React.Component {
                 <div className="logged-out-header">
                     <Link className="home unselectable" to="/">cam clickr</Link>
                     <div className="login-signup">
+                        <button
+                            className="demo-login cursor-button"
+                            onClick={() => demoLogin(demoUser)}
+                        >Demo Log In</button>
                         {login}
                         {signup}
                     </div>

@@ -20,6 +20,7 @@ class SessionForm extends React.Component {
         this.setErrors = this.setErrors.bind(this);
         this.processErrors = this.processErrors.bind(this);
         this.togglePassword = this.togglePassword.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     processErrors(id) {
@@ -60,6 +61,12 @@ class SessionForm extends React.Component {
         this.props.processForm(this.state.form).then(null, errors => this.setErrors(errors.errors));
     }
 
+    handleDemo(e) {
+        e.preventDefault();
+        const demoUser = { email: "demo@mail.com", password: "password" };
+        this.props.processForm(demoUser);
+    }
+
     render() {
         let formHead;
         let formSubmit;
@@ -94,6 +101,19 @@ class SessionForm extends React.Component {
             );
         }
 
+        
+        let demonstrationLogin;
+        if (this.props.formType === 'signup') {
+            demonstrationLogin = null;
+        } else {
+            demonstrationLogin = (
+                <button
+                    className="login-demo-login cursor-button"
+                    onClick={this.handleDemo}
+                >Demo Log In</button>
+            );
+        }
+
         const errorsString = this.state.errors.join(" ");
 
         return (
@@ -106,7 +126,7 @@ class SessionForm extends React.Component {
                             <div>
                                 <div className={errorsString.includes('Fname') ? "form-input error" : "form-input"}
                                     onClick={this.handleClick}
-                                    >
+                                >
                                     <input
                                         className="text-inputs"
                                         type="text"
@@ -183,6 +203,7 @@ class SessionForm extends React.Component {
                             type="submit"
                             value={formSubmit}
                         />
+                        {demonstrationLogin}
                     </div>
                     <div className="form-footer">
                         <hr className="solid" />

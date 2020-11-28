@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { BiArrowBack } from 'react-icons/bi';
 
 class PhotoShow extends React.Component {
     constructor(props) {
@@ -28,10 +29,10 @@ class PhotoShow extends React.Component {
                         <div className="photo">
                             <img src={photo.photoUrl} alt={photo.description} />
                         </div>
-                        <Link to={backLink}>Back to {backLinkText}</Link>
+                        <Link to={backLink}><BiArrowBack />Back to {backLinkText}</Link>
                     </div>
                     <div className="photo-info">
-                        <p>{this.props.users[photo.user_id].fname}</p>
+                        <Link to={`/photos/${photo.user_id}`}>{this.props.users[photo.user_id].fname} {this.props.users[photo.user_id].lname}</Link>
                         <h3>{photo.title}</h3>
                         <p>{photo.description}</p>
                     </div>

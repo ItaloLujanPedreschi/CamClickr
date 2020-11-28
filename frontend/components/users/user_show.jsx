@@ -16,8 +16,12 @@ class UserShow extends React.Component {
             return parseInt(photo.user_id) === user.id;
         });
         return (
-            <div className="photo-array">
-                {userPhotos.map(photo => <UserShowItem key={photo.id} photo={photo} displayName={user.email.split("@")[0]} />)}
+            <div className="user-background">
+                <div className="photo-array">
+                    <div className="photo-grid">
+                        {userPhotos.map(photo => <UserShowItem key={photo.id} photo={photo} displayName={user.email.split("@")[0]} />)}
+                    </div>
+                </div>
             </div>
         );
     }

@@ -58,7 +58,7 @@ button:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .logo-area img {
@@ -102,7 +102,18 @@ button:focus {
 
 .home-logged-in-header {
     background-color: rgba(30, 30, 32, 1);
-    width: 980px;
+    width: 80%;
+    height: 48px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.photo-show-logged-in-header {
+    background-color: rgba(22, 22, 24, 1);
+    width: 80%;
+    padding: 0 10%;
     height: 48px;
     margin: 0 auto;
     display: flex;
@@ -266,7 +277,7 @@ button:focus {
     display: none;
     top: 44px;
 	right: 0;
-	background-color: #fff;
+	background-color: rgba(255, 255, 255, 1);
 	border-radius: 3px;
     width: 300px;
 	z-index: 1;
@@ -284,8 +295,8 @@ button:focus {
     display: none;
     top: 39px;
 	right: 0;
-    background-color: #fff;
-    border: 1px solid #d2d2d2;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(210, 210, 210, 1);
 	border-radius: 3px;
     width: 90px;
 	z-index: 1;
@@ -298,7 +309,7 @@ button:focus {
     display: none;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-bottom: 6px solid #d2d2d2;
+    border-bottom: 6px solid rgba(210, 210, 210, 1);
     width: 0;
     height: 0;
     position: absolute;
@@ -410,7 +421,8 @@ button:focus {
     background-image: url("upload-bar/signup-background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0px -324px;
+    background-position: 0px -320px;
+    position: fixed;
     margin: 0 auto;
     height: 100vh;
     min-height: 750px;
@@ -494,7 +506,7 @@ button:focus {
     cursor: pointer;
 }
 
-input[type=submit] {
+input[type=submit], .login-demo-login {
     margin: 0 auto;
     margin-top: 32px;
     width: 100%;
@@ -507,8 +519,12 @@ input[type=submit] {
     font-weight: 600;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover, .login-demo-login:hover {
     background-color: rgba(34, 152, 228, 1);
+}
+
+.login-demo-login {
+    margin-top: 10px;
 }
 
 .form-footer {

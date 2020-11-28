@@ -11,32 +11,15 @@ class PhotoFormItem extends React.Component {
         this.shoeClose = this.showClose.bind(this);
     }
 
-    hideClose(id) {
-        const button = document.getElementById(`removeImage-${id}`);
-        button.classList.add("hidden");
-    }
-
-    showClose(id) {
-        const button = document.getElementById(`removeImage-${id}`);
-        button.classList.remove("hidden");
-    }
-
     render() {
         const { file } = this.props;
         return (
             <button
                 className={`thumbnails-container-${file.index}`}
                 onClick={this.props.select(file.index)}>
-                {/* <div
-                    id={`removeImage-${file.index}`}
-                    className='hidden'>
-                </div> */}
                 <div
                     className={`thumbnail-${file.index}`}
-                    // style={style}
                     name={file.index}
-                    // onMouseEnter={this.revealXbutton(file.index)}
-                    // onMouseLeave={this.hideXbutton(file.index)}
                 >
                     <img src={file.url} />
                 </div>

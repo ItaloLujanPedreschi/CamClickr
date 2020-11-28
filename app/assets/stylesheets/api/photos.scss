@@ -2,17 +2,71 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.explore-background {
+    background-color: rgba(243, 245, 246, 1);
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: -24px;
+    bottom: 0;
+}
+
+.user-background {
+    background-color: rgba(243, 245, 246, 1);
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+}
 
 .photo-array {
     width: 80%;
     margin: 0 auto;
 }
 
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1536px;
+}
+
 .photo-item {
-    // display: inline-block;
-    float: left;
+    padding: .1rem;
+    flex-grow: 1;
     position: relative;
-    margin: 0 10px;
+}
+
+.photo-info {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.photo-info a {
+    color: rgba(33, 33, 36, 1);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.photo-info a:hover {
+    transition: color .15s ease-in-out;
+    text-decoration: underline;
+    color: rgba(00, 109, 172, 1);
+}
+
+.photo-info h3 {
+    color: rgba(33, 33, 36, 1);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.photo-info p {
+    color: rgba(33, 33, 36, 1);
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .explore {
@@ -20,11 +74,14 @@
     font-weight: 300;
     line-height: 30px;
     margin: 24px 0 9px 0;
+    padding-top: 24px;
 }
 
 .photo-item a img {
     display: block;
-    height: 324px;
+    height: 20rem;
+    min-width: 100%;
+    object-fit: cover;
 }
 
 .photo-item .photo-overlay {
@@ -65,6 +122,8 @@
 
 .photo-container {
     // height: 75vh;
+    background-color: rgba(243, 245, 246, 1);
+    position: fixed;
     height: auto;
     width: 100%;
 
@@ -83,7 +142,6 @@
 
 .photo-show img {
     height: 65vh;
-    // width: auto;
     margin: 0 auto;
     padding: 50px 0;
 }
@@ -92,12 +150,22 @@
     text-decoration: none;
     color: white;
     position: absolute;
-    left: 30px;
+    font-size: 14px;
+    font-weight: 300;
+    left: 42px;
     top: 20px;
 }
 
 .photo-show a:hover {
     text-decoration: underline;
+}
+
+.photo-show svg {
+    position: absolute;
+    font-size: 18px;
+    font-weight: 600;
+    top: -1px;
+    left: -24px;
 }
 
 // For photo upload page
@@ -141,12 +209,12 @@
 
 .upload-bar-left button:hover, .upload-bar-left label:hover {
     border: 1px solid rgba(186, 186, 186, 1);
-    background-image: linear-gradient(to bottom,#f2f2f2 0,#d6d6d6 100%);
+    background-image: linear-gradient(to bottom,rgba(242, 242, 242, 1) 0,rgba(214, 214, 214, 1) 100%);
 }
 
 .upload-bar-left button:active, .upload-bar-left label:active {
     border: 1px solid rgba(186, 186, 186, 1);
-    background-image: linear-gradient(to bottom,#c6c6c6 0,#f2f2f2 100%);
+    background-image: linear-gradient(to bottom,rgba(198, 198, 198, 1) 0,rgba(242, 242, 242, 1) 100%);
 }
 
 .upload-bar-left button div {

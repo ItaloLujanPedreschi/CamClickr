@@ -31,7 +31,7 @@ class PhotoForm extends React.Component {
     select(id) {
         return (e) => {
             e.preventDefault();
-            // e.stopPropagation();
+            e.stopPropagation();
             const image = document.getElementsByClassName(`thumbnail-${id}`);
             this.deselect(e);
             image[0].classList.add("selected-thumbnail")
