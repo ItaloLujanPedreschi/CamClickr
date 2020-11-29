@@ -13,6 +13,7 @@ import PhotoFormContainer from './components/photos/photo_form_container';
 import FooterContainer from './components/footer/footer_container'
 import UserShowContainer from './components/users/user_show_container';
 import PhotoShowContainer from './components/photos/photo_show_container';
+import HomePageContainer from './components/home_page/home_page_container';
 
 const App = () => (
     <div className="body background">
@@ -26,9 +27,10 @@ const App = () => (
                 <Route path="/" component={HeaderContainer} />
             </Switch>
         </header>
+        <AuthRoute exact path="/" component={HomePageContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
         <AuthRoute path="/login" component={LoginFormContainer} />
-        <Route exact path="/explore" component={PhotosIndexContainer} />
+        <ProtectedRoute exact path="/explore" component={PhotosIndexContainer} />
         <Switch>
             <ProtectedRoute path="/photos/upload" component={PhotoFormContainer} />
             <Route exact path="/photos/:userId" component={UserShowContainer} />

@@ -2,6 +2,148 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.home-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-body {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    top: 0px;
+    right: 0;
+    bottom: 0px;
+    left: 0;
+    z-index: -1;
+}
+
+.home-body-content {
+    position: absolute;
+    text-align: center;
+    top: 25%;
+    color: white;
+    width: 640px;
+    z-index: 2;
+}
+
+.home-body-content h1 {
+    font-size: 56px;
+    font-weight: 500;
+}
+
+.home-body-content h3 {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 32px;
+    margin-top: 26px;
+    margin-bottom: 50px;
+}
+
+.home-body-content .home-button {
+	border: none;
+    background-color: white;
+    box-sizing: content-box;
+    border-radius: 3px;
+    font-size: 24px;
+    font-weight: 500;
+    height: 64px;
+    width: 160px;
+    padding: 0 20px;
+    color: black;
+    cursor: pointer;
+}
+
+.photo-1, .photo-2, .photo-3, .photo-4 {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.photo-1 {
+    background-image: image_url("machu-picchu-1.jpg");
+    background-size: cover;
+    animation: fade1 36s infinite;
+    -webkit-animation: fade1 36s infinite;
+    z-index: -2;
+}
+
+.photo-2 {
+    background-image: image_url("grand-canyon-1.jpg");
+    background-size: cover;
+    animation: fade2 36s infinite;
+    -webkit-animation: fade2 36s infinite;
+    z-index: -2;
+}
+
+.photo-3 {
+    background-image: image_url("astrophotography.jpg");
+    background-size: cover;
+    animation: fade3 36s infinite;
+    -webkit-animation: fade3 36s infinite;
+    z-index: -2;
+}
+
+.photo-4 {
+    background-image: image_url("bee-macro.jpg");
+    background-size: cover;
+    animation: fade4 36s infinite;
+    -webkit-animation: fade4 36s infinite;
+    z-index: -2;
+}
+
+@keyframes fade1 {
+    0% { opacity: 1 }
+    10% { opacity: 1 }
+    15% { opacity: 0 }
+    25% { opacity: 0 }
+    50% { opacity: 0 }
+    75% { opacity: 0 }
+    85% { opacity: 0 }
+    90% { opacity: 1 }
+    100% { opacity: 1 }
+}
+
+@keyframes fade2 {
+    0% { opacity: 0 }
+    10% { opacity: 0 }
+    15% { opacity: 1 }
+    25% { opacity: 1 }
+    35% { opacity: 1 }
+    40% { opacity: 0 }
+    50% { opacity: 0 }
+    76% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+@keyframes fade3 {
+    0% { opacity: 0 }
+    25% { opacity: 0 }
+    35% { opacity: 0 }
+    40% { opacity: 1 }
+    50% { opacity: 1 }
+    60% { opacity: 1 }
+    65% { opacity: 0 }
+    75% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+@keyframes fade4 {
+    0% { opacity: 0 }
+    25% { opacity: 0 }
+    50% { opacity: 0 }
+    60% { opacity: 0 }
+    65% { opacity: 1 }
+    75% { opacity: 1 }
+    85% { opacity: 1 }
+    90% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
 footer {
     background-color: rgb(0, 0, 0);
     position: fixed;
