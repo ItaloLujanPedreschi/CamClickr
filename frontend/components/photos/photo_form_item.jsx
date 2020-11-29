@@ -7,8 +7,6 @@ class PhotoFormItem extends React.Component {
             title: this.props.file.file.name,
             description: ""
         }
-        this.hideClose = this.hideClose.bind(this);
-        this.shoeClose = this.showClose.bind(this);
     }
 
     render() {
