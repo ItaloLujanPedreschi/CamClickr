@@ -1,24 +1,9 @@
-# README
+# CamClickr
+[Live Site](https://cam-clickr.herokuapp.com/#/explore)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+CamClickr is a Flickr inspired clone, meant to replicate its image hosting features and capabilities.
+CamClickr was build using:
+  *Frontend: React, Redux
+  
+  *Backend: Ruby on Rails and PostgreSQL
+  *Storage: Rails Active Storage and AWS S3
