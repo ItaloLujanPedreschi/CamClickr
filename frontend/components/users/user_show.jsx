@@ -1,5 +1,6 @@
 import React from 'react';
 import UserShowItem from './user_show_item';
+import UserShowHeader from './user_show_header';
 
 class UserShow extends React.Component {
     constructor(props) {
@@ -17,6 +18,12 @@ class UserShow extends React.Component {
         });
         return (
             <div className="user-background">
+                <UserShowHeader user={user} photos={userPhotos} />
+                <div className="user-subheader">
+                    <div className="user-subheader-content">
+                        <p>Photostream</p>
+                    </div>
+                </div>
                 <div className="photo-array">
                     <div className="photo-grid">
                         {userPhotos.map(photo => <UserShowItem key={photo.id} photo={photo} displayName={user.email.split("@")[0]} />)}
