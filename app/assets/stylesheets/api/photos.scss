@@ -431,8 +431,29 @@ hr.upload-add-remove-divider {
 
 .upload-display {
     height: 100%;
+    position: relative;
 }
 
+.center-add-photo-button {
+    position: absolute;
+    top: 44%;
+    left: 39%;
+}
+
+.center-add-photo-button input {
+    display: none;
+}
+
+.center-add-photo-button label { 
+    background-color: rgba(41, 97, 212, 1);
+    color: rgba(255, 255, 255, 1);
+    width: 210px;
+    font-size: 18px;
+    padding: 8px 55px;
+    border-radius: 4px;
+    text-align: center;
+}
+    
 // Thumbails
 
 .thumbnails-array {

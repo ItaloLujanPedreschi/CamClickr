@@ -114,6 +114,20 @@ class PhotoForm extends React.Component {
         })
 
         const numPhotos = this.state.files.filter(Boolean).length;
+        let centerAddPhoto = numPhotos === 0 ? (
+            <div className="center-add-photo-button">
+                <input
+                    id="center-add-photo-button"
+                    type="file"
+                    onChange={this.handleFile}
+                    multiple
+                />
+                <label htmlFor="center-add-photo-button">
+                    Choose photos to upload
+                </label>
+            </div>
+        ) : (null)
+
         let disableButton;
         (this.state.selected === null) ? disableButton = true : disableButton = false;
         let submitButtonText;
@@ -153,6 +167,7 @@ class PhotoForm extends React.Component {
                     >{submitButtonText}</button>
                 </div>
                 <form className="upload-display" onClick={this.deselectAll}>
+                    {centerAddPhoto}
                     <div className="thumbnails-array">
                         {thumbnails}
                     </div>
