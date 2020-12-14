@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Greeting from './../greetings/greeting';
+import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
+import { FaPortrait } from 'react-icons/fa';
 
 class Header extends React.Component {
     constructor(props) {
@@ -37,6 +39,21 @@ class Header extends React.Component {
                     </ul>
                 </div>
                 <ul className="user-actions-list">
+                    <li className="header-link">
+                        <a href="https://github.com/ItaloLujanPedreschi/CamClickr" target="_blank">
+                            <AiFillGithub className="header-icon" />
+                        </a>
+                    </li>
+                    <li className="header-link">
+                        <a href="https://www.linkedin.com/in/italo-lujan-98169373/" target="_blank">
+                            <AiFillLinkedin className="header-icon" />
+                        </a>
+                    </li>
+                    <li className="header-link">
+                        <a href="https://italolujanpedreschi.github.io/" target="_blank">
+                            <FaPortrait className="header-icon" />
+                        </a>
+                    </li>
                     <li>
                         <Link to="/photos/upload">
                             <img src={`${window.uploadButton}`} />

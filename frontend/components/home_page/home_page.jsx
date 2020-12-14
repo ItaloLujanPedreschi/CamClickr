@@ -20,7 +20,7 @@ class HomePage extends React.Component {
                 <div className="home-body-content">
                     <h1>Find your inspiration.</h1>
                     <h3>Join the Cam Clickr community, home to tens of billions of photos and 2 million groups.</h3>
-                    <button className="home-button" onClick={() => demoLogin(demoUser)}>
+                    <button id="home-button" className="home-button" onClick={() => demoLogin(demoUser)}>
                         Start for free
                         </button>
                 </div>

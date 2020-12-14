@@ -30,7 +30,7 @@
 
 .home-body-content h1 {
     font-size: 56px;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .home-body-content h3 {
@@ -47,7 +47,7 @@
     box-sizing: content-box;
     border-radius: 3px;
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 600;
     height: 64px;
     width: 160px;
     padding: 0 20px;
@@ -161,7 +161,7 @@ footer {
 
 .footer-links {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     list-style: none;
     box-sizing: border-box;
@@ -171,11 +171,16 @@ footer {
     font-size: 14px;
 }
 
-.footer-link a {
-    text-decoration: none;
-    color: hsla(0, 0%, 100%, .6);
+.footer-link:nth-child(2) a {
+    margin: 0 20px;
 }
 
-.footer-link a:hover {
-    color: rgb(255, 255, 255);
+.footer-icon {
+    font-size: 32px;
+    color: rgba(126, 126, 126, 1);
+}
+
+.footer-icon:hover {
+    font-size: 32px;
+    color: rgb(99, 99, 99);
 }

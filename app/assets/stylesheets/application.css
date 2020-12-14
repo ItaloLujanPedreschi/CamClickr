@@ -223,6 +223,8 @@ button:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 340px;
+    padding: 0;
 }
 
 .user-actions-list li {
@@ -234,6 +236,11 @@ button:focus {
     height: 20px;
     width: 30px;
     margin-right: 20px;
+}
+
+.user-actions-list .header-link .header-icon {
+    font-size: 32px;
+    color: rgba(255, 255, 255, 1);
 }
 
 /* Dropdown */
