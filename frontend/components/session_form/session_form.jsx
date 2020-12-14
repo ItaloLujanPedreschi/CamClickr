@@ -206,6 +206,7 @@ class SessionForm extends React.Component {
                                 htmlFor="password"
                             >Password</label>
                             <button
+                                type="button"
                                 className="password-toggle"
                                 onClick={this.togglePassword}
                             >{this.state.hidden ? <BiShow className="icon" /> : <BiHide className="icon" />}</button>
