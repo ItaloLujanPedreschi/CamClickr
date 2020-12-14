@@ -431,7 +431,6 @@ button:focus {
 }
 
 .form-container {
-    background-image: url("upload-bar/signup-background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0px -320px;
