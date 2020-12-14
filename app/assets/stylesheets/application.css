@@ -630,8 +630,7 @@ input[type="number"] {
 }
 
 div.error label.signup-form-label {
-    color: rgb(215, 33, 42);
-    
+    color: rgb(215, 33, 42); 
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
@@ -651,6 +650,32 @@ div.error button.password-toggle svg {
     position: relative;
     color: rgb(215, 33, 42);
     content: "Required";
+    font-size: 12px;
+    margin: 8px 0 8px 0;
+    left: 16px;
+}
+
+div.login-error label.signup-form-label {
+    color: rgb(215, 33, 42);
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+div.login-error input.text-inputs {
+    border-color: rgb(215, 33, 42);
+}
+
+div.login-error button.password-toggle svg {
+    color: rgb(215, 33, 42);
+}
+
+.login-error:nth-child(2):after {
+    display: block;
+    position: relative;
+    color: rgb(215, 33, 42);
+    content: "Invalid email and/or password";
     font-size: 12px;
     margin: 8px 0 8px 0;
     left: 16px;

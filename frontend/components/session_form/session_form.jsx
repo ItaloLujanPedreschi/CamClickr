@@ -116,6 +116,18 @@ class SessionForm extends React.Component {
 
         const errorsString = this.state.errors.join(" ");
 
+        let emailClass = [];
+        errorsString.includes('Email') ? emailClass.push("form-input error") : emailClass.push("form-input")
+        if (errorsString.includes('email')) {
+            emailClass.push("login-error");
+        }
+        
+        let passwordClass = [];
+        errorsString.includes('Password') ? passwordClass.push("form-input error") : passwordClass.push("form-input")
+        if (errorsString.includes('password')) {
+            passwordClass.push("login-error");
+        }
+
         return (
             <div className="form-container">
                 <form className="signup-form" onSubmit={this.handleSubmit}>
@@ -168,7 +180,7 @@ class SessionForm extends React.Component {
                             </div>
                         ) : (null)
                         }
-                        <div className={errorsString.includes('Email') ? "form-input error" : "form-input"}>
+                        <div className={emailClass.join(" ")}>
                             <input
                                 className="text-inputs"
                                 type="text"
@@ -181,7 +193,7 @@ class SessionForm extends React.Component {
                                 htmlFor="email"
                             >Email address</label>
                         </div>
-                        <div className={errorsString.includes('Password') ? "form-input error" : "form-input"}>
+                        <div className={passwordClass.join(" ")}>
                             <input
                                 className="text-inputs"
                                 type={this.state.hidden ? 'password' : 'text'}
