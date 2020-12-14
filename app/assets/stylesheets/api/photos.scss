@@ -109,6 +109,7 @@
 .photo-info {
     width: 90%;
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 .photo-info a {
@@ -232,6 +233,26 @@
     font-weight: 600;
     top: -1px;
     left: -24px;
+}
+
+.photo-delete-button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.photo-delete-button svg {
+    color: white;
+    font-size: 32px;
+}
+
+.photo-delete-button svg:hover {
+    color: rgba(240, 0, 0, 1);
 }
 
 // For photo upload page
