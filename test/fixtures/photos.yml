@@ -1,4 +1,14 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: photos
+#
+#  id          :bigint           not null, primary key
+#  user_id     :string           not null
+#  title       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  description :text
+#
 
 one:
   user_id: 1

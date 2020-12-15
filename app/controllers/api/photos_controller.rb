@@ -21,7 +21,7 @@ class Api::PhotosController < ApplicationController
 
     def update
         @photo = Post.find_by(id: params[:id])
-        if @photo.update(post_params)
+        if @photo.update(photo_params)
             render :show
         else
             render json: photo.errors.full_messages, status: 422
