@@ -5,6 +5,9 @@ import UserShowHeader from './user_show_header';
 class UserShow extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            tab: null
+        }
     }
 
     componentDidMount() {
@@ -22,6 +25,7 @@ class UserShow extends React.Component {
                 <div className="user-subheader">
                     <div className="user-subheader-content">
                         <p>Photostream</p>
+                        <p>Albums</p>
                     </div>
                 </div>
                 <div className="photo-array">
