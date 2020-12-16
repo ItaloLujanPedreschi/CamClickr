@@ -7,10 +7,10 @@ import { FaPortrait } from 'react-icons/fa';
 class HomeHeader extends React.Component {
     constructor(props) {
         super(props);
-        this.handleDropdown = this.handleDropdown.bind(this);
+        this.handleUserDropdown = this.handleUserDropdown.bind(this);
     }
 
-    handleDropdown() {
+    handleUserDropdown() {
         document.getElementById("logout-dropdown").classList.toggle("show");
         document.getElementById("logout-arrow-up").classList.toggle("show");
     }
@@ -28,7 +28,16 @@ class HomeHeader extends React.Component {
                     <img src={`${window.logo}`} />
                     <Link className="home unselectable" to="/">cam clickr</Link>
                     <ul className="home-nav">
-                        <li className="home-nav-item"><Link className="unselectable" to={`/photos/${currentUser.id}`}>You</Link></li>
+                        <li className="home-nav-item you-dropdown">
+                            <Link className="you-dropdown-link unselectable" to={`/photos/${currentUser.id}`}>You</Link>
+                            <div className="you-arrow-up"></div>
+                            <div className="you-dropdown-content">
+                                <div className="you-dropdown-submenu">
+                                    <Link className="unselectable" to={`/photos/${currentUser.id}`}>Photostream</Link>
+                                    <Link className="unselectable" to={`/photos/${currentUser.id}/albums`}>Albums</Link>
+                                </div>
+                            </div>
+                        </li>
                         <li className="home-nav-item"><Link className="unselectable" to="/explore">Explore</Link></li>
                     </ul>
                 </div>
@@ -55,7 +64,7 @@ class HomeHeader extends React.Component {
                     </li>
                     <li>
                         <button
-                            onClick={this.handleDropdown}
+                            onClick={this.handleUserDropdown}
                             className="dropdown-button"
                         >Hi {currentUser.fname}</button>
                         <div id="logout-arrow-up" className="arrow-up"></div>

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 class UploadHeader extends React.Component {
     constructor(props) {
         super(props);
-        this.handleDropdown = this.handleDropdown.bind(this);
+        this.handleUserDropdown = this.handleUserDropdown.bind(this);
     }
 
-    handleDropdown() {
+    handleUserDropdown() {
         document.getElementById("logout-dropdown").classList.toggle("show");
         document.getElementById("logout-arrow-up").classList.toggle("show");
         document.getElementById("logout-arrow-up-border").classList.toggle("show");
@@ -24,7 +24,7 @@ class UploadHeader extends React.Component {
                 </div>
                 <div>
                     <button
-                        onClick={this.handleDropdown}
+                        onClick={this.handleUserDropdown}
                         className="dropdown-button upload-user-button"
                     >Hi {currentUser.fname}</button>
                     <div id="logout-arrow-up-border" className="upload-arrow-up-border arrow-up"></div>
