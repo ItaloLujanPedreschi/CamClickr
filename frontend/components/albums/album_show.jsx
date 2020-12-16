@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
+import UserShowItem from './../users/user_show_item';
 
 class AlbumShow extends React.Component {
     constructor(props) {
@@ -28,6 +29,13 @@ class AlbumShow extends React.Component {
                 numPhotos = "photos";
             }
 
+            let description;
+            if (album.description === null) {
+                description = "No description";
+            } else {
+                description = album.description
+            }
+
             return (
                 <div className="album-container">
                     <div className="album-show-toolbar">
@@ -37,18 +45,22 @@ class AlbumShow extends React.Component {
                         <div className="dim">
                             <div className="album-info-head">
                                 <h3>{album.name}</h3>
-                                <p>{album.description}</p>
+                                <p>{description}</p>
                             </div>
                             <div className="num-photos">
                                 <p className="num-photos">{album.photos.length} {numPhotos}</p>
                             </div>
                             <div className="album-return-link">
-                                <Link to={`/albums/${album.user_id}`}>{this.props.users[album.user_id].fname} {this.props.users[album.user_id].lname}</Link>
+                                <Link to={`/albums/${album.user_id}`}>By: {this.props.users[album.user_id].fname} {this.props.users[album.user_id].lname}</Link>
                             </div>
                         </div>
                     </div>
                     <div className="album-photos">
-                        <p>Hi</p>
+                        {/* <div className="photo-array"> */}
+                            <div className="photo-grid">
+                                {album.photos.map(photo => <UserShowItem key={photo.id} photo={photo} displayName={currentUser.email.split("@")[0]} />)}
+                            </div>
+                        {/* </div> */}
                     </div>
                 </div>
             );
