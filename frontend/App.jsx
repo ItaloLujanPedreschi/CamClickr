@@ -25,6 +25,7 @@ const App = () => (
                 <Route exact path="/signup" component={EmptyHeaderContainer} />
                 <Route exact path="/login" component={EmptyHeaderContainer} />
                 <ProtectedRoute exact path="/photos/upload" component={UploadHeaderContainer} />
+                <Route path="/photos/:displayName/albums" component={HeaderContainer} />
                 <Route path="/photos/:displayName/:photoId" component={PhotoShowHeaderContainer} />
                 <Route path="/" component={HeaderContainer} />
             </Switch>

@@ -89,7 +89,7 @@ button:focus {
 .logged-in-home-header {
     background-color: rgba(30, 30, 32, 1);
     width: 100%;
-    height: 48px;
+    height: 50px;
 }
 
 .home-logged-out-header {
@@ -109,7 +109,7 @@ button:focus {
 .home-logged-in-header {
     background-color: rgba(30, 30, 32, 1);
     width: 80%;
-    height: 48px;
+    height: 50px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -120,7 +120,7 @@ button:focus {
     background-color: rgba(22, 22, 24, 1);
     width: 80%;
     padding: 0 10%;
-    height: 48px;
+    height: 50px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -134,7 +134,7 @@ button:focus {
 .logged-in-header {
     background-color: rgba(30, 30, 32, 1);
     width: 980px;
-    height: 48px;
+    height: 50px;
     margin: 0 auto;
 }
 
@@ -146,7 +146,7 @@ button:focus {
     text-decoration: none;
     font-family: Helvetica, sans-serif;
     width: 80%;
-    height: 48px;
+    height: 50px;
     margin: 0 auto;
 }
 

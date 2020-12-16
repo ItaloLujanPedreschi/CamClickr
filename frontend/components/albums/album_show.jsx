@@ -13,13 +13,19 @@ class AlbumShow extends React.Component {
 
     render() {
         const { album, currentUser } = this.props;
-        // let backLink;
-        // let backLinkText;
 
         if (album) {
             // debugger;
             const style = {
                 backgroundImage: 'url(' + album.photos[0].photoUrl + ')'
+            }
+
+            let numPhotos;
+
+            if (album.photos.length === 1) {
+                numPhotos = "photo";
+            } else {
+                numPhotos = "photos";
             }
 
             return (
@@ -33,7 +39,12 @@ class AlbumShow extends React.Component {
                                 <h3>{album.name}</h3>
                                 <p>{album.description}</p>
                             </div>
-                            <Link to={`/albums/${album.user_id}`}>{this.props.users[album.user_id].fname} {this.props.users[album.user_id].lname}</Link>
+                            <div className="num-photos">
+                                <p className="num-photos">{album.photos.length} {numPhotos}</p>
+                            </div>
+                            <div className="album-return-link">
+                                <Link to={`/albums/${album.user_id}`}>{this.props.users[album.user_id].fname} {this.props.users[album.user_id].lname}</Link>
+                            </div>
                         </div>
                     </div>
                     <div className="album-photos">
