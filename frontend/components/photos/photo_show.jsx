@@ -33,9 +33,13 @@ class PhotoShow extends React.Component {
         let backLink;
         let backLinkText;
 
-        if (this.props.location.pathname.includes("explore")) {
+        let path = this.props.location.pathname;
+        if (path.includes("explore")) {
             backLink = "/explore"
             backLinkText = "explore";
+        } else if (path.includes("album")) {
+            backLink = `/photos/${photo.user_id}/albums/${path.split("/")[5]}`
+            backLinkText = "album";
         } else {
             backLink = `/photos/${photo.user_id}`
             backLinkText = "photostream";

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
-import UserShowItem from './../users/user_show_item';
+import AlbumShowItem from './album_show_item';
 
 class AlbumShow extends React.Component {
     constructor(props) {
@@ -16,7 +16,6 @@ class AlbumShow extends React.Component {
         const { album, currentUser } = this.props;
 
         if (album) {
-            // debugger;
             const style = {
                 backgroundImage: 'url(' + album.photos[0].photoUrl + ')'
             }
@@ -58,7 +57,7 @@ class AlbumShow extends React.Component {
                     <div className="album-photos">
                         {/* <div className="photo-array"> */}
                             <div className="photo-grid">
-                                {album.photos.map(photo => <UserShowItem key={photo.id} photo={photo} displayName={currentUser.email.split("@")[0]} />)}
+                                {album.photos.map(photo => <AlbumShowItem key={photo.id} photo={photo} displayName={currentUser.email.split("@")[0]} albumId={album.id} />)}
                             </div>
                         {/* </div> */}
                     </div>
