@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 
-class PhotoShow extends React.Component {
+class AlbumShow extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -40,4 +40,4 @@ class PhotoShow extends React.Component {
     }
 }
 
-export default PhotoShow;
+export default AlbumShow;

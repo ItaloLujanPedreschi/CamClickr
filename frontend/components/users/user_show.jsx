@@ -49,7 +49,7 @@ class UserShow extends React.Component {
             display = (
                     <div className="albums-array">
                         <div className="albums-grid">
-                            {userAlbums.map(album => <UserShowAlbum key={album.id} album={album} />)}
+                            {userAlbums.map(album => <UserShowAlbum key={album.id} album={album} currentUser={user} />)}
                         </div>
                     </div>
                 )

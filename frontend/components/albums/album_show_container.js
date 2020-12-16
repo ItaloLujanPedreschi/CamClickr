@@ -12,10 +12,11 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    getAlbum: albumId => dispatch(getAlbum(albumId))
+    getAlbum: albumId => dispatch(getAlbum(albumId)),
+    deleteAlbum: albumId => dispatch(deleteAlbum(albumId))
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(PhotoShow);
+)(AlbumShow);
