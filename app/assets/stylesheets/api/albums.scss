@@ -1,0 +1,50 @@
+.albums-array {
+    width: 80%;
+    margin: 0 auto;
+
+    .albums-grid {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        max-width: 1536px;
+
+        .album-item {
+            background-size: cover;
+            height: 240px;
+            width: 240px;
+
+            .album-overlay {
+                transition: 0.2s;
+                position: absolute;
+                bottom: 20px;
+                color: rgba(255, 255, 255, 1);
+                width: 200px;
+                height: auto;
+                padding: 0 20px;
+
+                .album-name {
+                    font-size: 20px;
+                    font-weight: 100;
+                    margin: 0;
+                    text-shadow: 0 1px 1px rgba(0, 0, 0, 1);
+    
+                }
+
+                .num-photos {
+                    font-size: 14px;
+                    margin: 0;
+                }
+            }
+        }
+
+        .album-item:hover {
+
+
+            .album-overlay {
+                bottom: 50px;
+            }
+        }
+    }
+}

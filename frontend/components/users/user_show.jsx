@@ -1,38 +1,88 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import UserShowItem from './user_show_item';
 import UserShowHeader from './user_show_header';
+import UserShowAlbum from './user_show_album';
 
 class UserShow extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            tab: null
+        this.handleTabs = this.handleTabs.bind(this);
+    }
+
+    handleTabs() {
+        if (this.props.location.pathname.includes("albums")) {
+            let albumClasses = document.getElementById("user-show-albums-link").classList;
+            albumClasses.add("selected");
+        } else {
+            let photostreamClasses = document.getElementById("user-show-photostream-link").classList;
+            photostreamClasses.add("selected");
         }
     }
 
     componentDidMount() {
         this.props.getPhotos();
+        this.props.getAlbums();
+        this.handleTabs();
+    }
+
+    componentDidUpdate() {
+        let tabsClasses = document.querySelectorAll(".user-show-tab");
+        tabsClasses.forEach(tab => {
+            tab.classList.remove("selected");
+        });
+        this.handleTabs();
     }
 
     render() {
-        const { photos, user } = this.props;
+        const { user, photos, albums } = this.props;
         const userPhotos = photos.filter(photo => {
             return parseInt(photo.user_id) === user.id;
         });
+        const userAlbums = albums.filter(album => {
+                return parseInt(album.user_id) === user.id;
+        });
+
+        let display;
+
+        if (this.props.location.pathname.includes("albums")) {
+            display = (
+                    <div className="albums-array">
+                        <div className="albums-grid">
+                            {userAlbums.map(album => <UserShowAlbum key={album.id} album={album} />)}
+                        </div>
+                    </div>
+                )
+        } else {
+            display = (
+                    <div className="photo-array">
+                        <div className="photo-grid">
+                            {userPhotos.map(photo => <UserShowItem key={photo.id} photo={photo} displayName={user.email.split("@")[0]} />)}
+                        </div>
+                    </div>
+                )
+        }
+
         return (
             <div className="user-background">
                 <UserShowHeader user={user} photos={userPhotos} />
                 <div className="user-subheader">
                     <div className="user-subheader-content">
-                        <p>Photostream</p>
-                        <p>Albums</p>
+                        <Link
+                            to={`/photos/${user.id}`}
+                            id="user-show-photostream-link"
+                            className="user-show-tab">
+                            Photostream
+                        </Link>
+                        <Link
+                            to={`/photos/${user.id}/albums`}
+                            id="user-show-albums-link"
+                            className="user-show-tab">
+                            Albums
+                        </Link>
                     </div>
                 </div>
-                <div className="photo-array">
-                    <div className="photo-grid">
-                        {userPhotos.map(photo => <UserShowItem key={photo.id} photo={photo} displayName={user.email.split("@")[0]} />)}
-                    </div>
-                </div>
+                {display}
             </div>
         );
     }

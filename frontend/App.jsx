@@ -33,7 +33,8 @@ const App = () => (
         <ProtectedRoute exact path="/explore" component={PhotosIndexContainer} />
         <Switch>
             <ProtectedRoute path="/photos/upload" component={PhotoFormContainer} />
-            <Route exact path="/photos/:userId" component={UserShowContainer} />
+            <Route path="/photos/:userId" component={UserShowContainer} />
+            <Route exact path="/photos/:userId/albums/:albumId" component={UserShowContainer} />
             <Route path="/photos/:displayName/:photoId" component={PhotoShowContainer} />
         </Switch>
         <Route exact path="/" component={FooterContainer} />
