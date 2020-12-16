@@ -13,22 +13,31 @@ class AlbumShow extends React.Component {
 
     render() {
         const { album, currentUser } = this.props;
-        let backLink;
-        let backLinkText;
+        // let backLink;
+        // let backLinkText;
 
         if (album) {
+            // debugger;
+            const style = {
+                backgroundImage: 'url(' + album.photos[0].photoUrl + ')'
+            }
+
             return (
                 <div className="album-container">
-                    <div className="album-show">
-                        <div className="album">
-                            <img src={album.albumUrl} alt={album.description} />
-                        </div>
-                        <Link to={`/photos/${album.user_id}`}><BiArrowBack />Back to albums list</Link>
+                    <div className="album-show-toolbar">
+                        <Link to={`/photos/${album.user_id}/albums`}><BiArrowBack />Back to albums list</Link>
                     </div>
-                    <div className="album-info">
-                        <Link to={`/albums/${album.user_id}`}>{this.props.users[album.user_id].fname} {this.props.users[album.user_id].lname}</Link>
-                        <h3>{album.title}</h3>
-                        <p>{album.description}</p>
+                    <div className="album-info" style={style}>
+                        <div className="dim">
+                            <div className="album-info-head">
+                                <h3>{album.name}</h3>
+                                <p>{album.description}</p>
+                            </div>
+                            <Link to={`/albums/${album.user_id}`}>{this.props.users[album.user_id].fname} {this.props.users[album.user_id].lname}</Link>
+                        </div>
+                    </div>
+                    <div className="album-photos">
+                        <p>Hi</p>
                     </div>
                 </div>
             );
