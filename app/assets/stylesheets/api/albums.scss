@@ -1,90 +1,119 @@
-.albums-array {
-    width: 80%;
-    margin: 0 auto;
+.albums-body {
 
-    .albums-grid {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-        padding: 0;
+    .albums-toolbar {
+        width: 80%;
         margin: 0 auto;
-        max-width: 1536px;
 
-        .album-item {
-            position: relative;
-            background-size: cover;
-            height: 240px;
-            width: 240px;
+        a {
+            color: rgba(143, 147, 150, 1);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            text-decoration: none;
 
-            .album-overlay {
-                transition: 0.2s;
-                position: absolute;
-                bottom: 20px;
-                color: rgba(255, 255, 255, 1);
-                width: 200px;
-                height: auto;
-                padding: 0 20px;
+            svg {
+                margin-right: 7px;
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
 
-                .album-name {
-                    font-size: 20px;
-                    font-weight: 100;
-                    margin: 0;
-                    text-shadow: 0 1px 1px rgba(0, 0, 0, 1);
-    
+    .albums-array {
+        width: 80%;
+        margin: 0 auto;
+
+        .albums-grid {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 1536px;
+
+            a {
+                height: 100%;
+            }
+
+            .album-item {
+                position: relative;
+                background-size: cover;
+                height: 240px;
+                width: 240px;
+
+                .album-overlay {
+                    transition: 0.2s;
+                    position: absolute;
+                    bottom: 20px;
+                    color: rgba(255, 255, 255, 1);
+                    width: 200px;
+                    height: auto;
+                    padding: 0 20px;
+
+                    .album-name {
+                        font-size: 20px;
+                        font-weight: 100;
+                        margin: 0;
+                        text-shadow: 0 1px 1px rgba(0, 0, 0, 1);
+                    }
+
+                    .num-photos {
+                        font-size: 14px;
+                        margin: 0;
+                    }
                 }
 
-                .num-photos {
-                    font-size: 14px;
-                    margin: 0;
+                .album-actions {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    transition: 0.2s;
+                    color: rgba(255, 255, 255, 1);
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    height: 0;
+
+                    .album-delete-button {
+                        background: none;
+                        color: inherit;
+                        border: none;
+                        padding: 0;
+                        font: inherit;
+                        cursor: pointer;
+                        outline: inherit;
+
+                    }
+                        svg {
+                            transition: 0.2s;
+                            height: 0;
+                            width: 22px;
+                            padding: 12px 18px 12px 13px;
+                        }
+
+                        svg:hover {
+                            color: rgba(240, 0, 0, 1);
+                        }
                 }
             }
 
-            .album-actions {
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                transition: 0.2s;
-                color: rgba(255, 255, 255, 1);
-                position: absolute;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                height: 0;
+            .album-item:hover {
 
-                .album-delete-button {
-                    background: none;
-                    color: inherit;
-                    border: none;
-                    padding: 0;
-                    font: inherit;
-                    cursor: pointer;
-                    outline: inherit;
-
+                .album-overlay {
+                    bottom: 50px;
                 }
+
+                .album-actions {
+                    height: 50px;
+
                     svg {
                         transition: 0.2s;
-                        height: 0;
-                        width: 22px;
-                        padding: 12px 18px 12px 13px;
+                        height: 26px;
                     }
-            }
-        }
-
-        .album-item:hover {
-
-            .album-overlay {
-                bottom: 50px;
-            }
-
-            .album-actions {
-                height: 50px;
-
-                svg {
-                    transition: 0.2s;
-                    height: 26px;
                 }
             }
-        }
 
+        }
     }
 }

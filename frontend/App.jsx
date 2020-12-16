@@ -15,6 +15,7 @@ import UserShowContainer from './components/users/user_show_container';
 import PhotoShowContainer from './components/photos/photo_show_container';
 import HomePageContainer from './components/home_page/home_page_container';
 import AlbumShowContainer from './components/albums/album_show_container';
+import AlbumFormContainer from './components/albums/album_form_container';
 
 const App = () => (
     <div className="body background">
@@ -34,6 +35,7 @@ const App = () => (
         <ProtectedRoute exact path="/explore" component={PhotosIndexContainer} />
         <Switch>
             <ProtectedRoute path="/photos/upload" component={PhotoFormContainer} />
+            <ProtectedRoute path="/photos/origin/new_Set" component={AlbumFormContainer} />
             <Route exact path="/photos/:userId" component={UserShowContainer} />
             <Route exact path="/photos/:userId/albums" component={UserShowContainer} />
             <Route exact path="/photos/:userId/albums/:albumId" component={AlbumShowContainer} />

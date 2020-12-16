@@ -5,6 +5,7 @@ import { CgTrash } from 'react-icons/cg';
 class UserShowAlbum extends React.Component {
     constructor(props) {
         super(props);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     handleDelete(e) {
@@ -39,15 +40,17 @@ class UserShowAlbum extends React.Component {
         }
 
         return (
-            <div className="album-item" style={style}>
-                <div className="album-overlay">
-                    <h4 className="album-name">{album.name}</h4>
-                    <p className="num-photos">{album.photos.length} {numPhotos}</p>
+            <Link to={`/photos/${currentUser.id}/albums/${album.id}`}>
+                <div className="album-item" style={style}>
+                    <div className="album-overlay">
+                        <h4 className="album-name">{album.name}</h4>
+                        <p className="num-photos">{album.photos.length} {numPhotos}</p>
+                    </div>
+                    <div className="album-actions">
+                        {albumDelete}
+                    </div>
                 </div>
-                <div className="album-actions">
-                    {albumDelete}
-                </div>
-            </div>
+            </Link>
         );
     }
 }

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getAlbum, deleteAlbum } from '../../actions/album_actions';
+import { getAlbum } from '../../actions/album_actions';
 import AlbumShow from './album_show';
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,8 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    getAlbum: albumId => dispatch(getAlbum(albumId)),
-    deleteAlbum: albumId => dispatch(deleteAlbum(albumId))
+    getAlbum: albumId => dispatch(getAlbum(albumId))
 });
 
 export default connect(

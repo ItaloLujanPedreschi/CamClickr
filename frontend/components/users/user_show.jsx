@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { IoIosAlbums } from "react-icons/io";
 import UserShowItem from './user_show_item';
 import UserShowHeader from './user_show_header';
 import UserShowAlbum from './user_show_album';
@@ -47,9 +48,17 @@ class UserShow extends React.Component {
 
         if (this.props.location.pathname.includes("albums")) {
             display = (
-                    <div className="albums-array">
-                        <div className="albums-grid">
-                            {userAlbums.map(album => <UserShowAlbum key={album.id} album={album} currentUser={user} />)}
+                    <div className="albums-body">
+                        <div className="albums-toolbar">
+                            <Link to="/photos/organize/new_set">
+                                <IoIosAlbums />
+                                <p>New album</p>
+                            </Link>
+                        </div>
+                        <div className="albums-array">
+                            <div className="albums-grid">
+                                {userAlbums.map(album => <UserShowAlbum key={album.id} album={album} currentUser={user} />)}
+                            </div>
                         </div>
                     </div>
                 )
