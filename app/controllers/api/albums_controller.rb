@@ -11,12 +11,15 @@ class Api::AlbumsController < ApplicationController
     end
 
     def create
-        @album = Album.new(params.require(:album).permit(:name, :description))
+        @album = Album.new(album_params)
         @album.user_id = current_user.id
 
         photo_ids = params[:photo_ids]
 
         if !photo_ids.nil? && photo_ids.length > 0 && @album.save!
+            photo_ids.each do |photo_id|
+                PhotoAlbumLink.create({ photo_id: photo_id, album_id: @album.id })
+            end
             render :show
         else
             render json: @photo.errors.full_messages, status: 422
