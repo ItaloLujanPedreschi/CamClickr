@@ -6,8 +6,10 @@ export default () => {
         <div className="header">
             <div className="logged-out-header">
                 <div className="logo-area">
-                    <img src={`${window.logo}`} />
-                    <Link className="home unselectable" to="/">cam clickr</Link>
+                    <Link className="home unselectable" to="/">
+                        <img src={`${window.logo}`} />
+                        cam clickr
+                    </Link>
                 </div>
             </div>
         </div>

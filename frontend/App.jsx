@@ -16,6 +16,7 @@ import PhotoShowContainer from './components/photos/photo_show_container';
 import HomePageContainer from './components/home_page/home_page_container';
 import AlbumShowContainer from './components/albums/album_show_container';
 import AlbumFormContainer from './components/albums/album_form_container';
+import AlbumFormHeaderContainer from './components/albums/album_form_header_container';
 
 const App = () => (
     <div className="body background">
@@ -24,6 +25,7 @@ const App = () => (
                 <Route exact path="/" component={HomeHeaderContainer} />
                 <Route exact path="/signup" component={EmptyHeaderContainer} />
                 <Route exact path="/login" component={EmptyHeaderContainer} />
+                 <ProtectedRoute path="/photos/organize/new_set" component={AlbumFormHeaderContainer} />
                 <ProtectedRoute exact path="/photos/upload" component={UploadHeaderContainer} />
                 <Route path="/photos/:displayName/albums" component={HeaderContainer} />
                 <Route path="/photos/:displayName/:photoId" component={PhotoShowHeaderContainer} />
@@ -36,7 +38,7 @@ const App = () => (
         <ProtectedRoute exact path="/explore" component={PhotosIndexContainer} />
         <Switch>
             <ProtectedRoute path="/photos/upload" component={PhotoFormContainer} />
-            <ProtectedRoute path="/photos/origin/new_Set" component={AlbumFormContainer} />
+            <ProtectedRoute path="/photos/organize/new_set" component={AlbumFormContainer} />
             <Route exact path="/photos/:userId" component={UserShowContainer} />
             <Route exact path="/photos/:userId/albums" component={UserShowContainer} />
             <Route exact path="/photos/:userId/albums/:albumId" component={AlbumShowContainer} />

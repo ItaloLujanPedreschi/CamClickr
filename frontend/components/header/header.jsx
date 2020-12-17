@@ -31,8 +31,10 @@ class Header extends React.Component {
         const display = currentUser ? (
             <div className="home-logged-in-header">
                 <div className="logo-area">
-                    <img src={`${window.logo}`} />
-                    <Link className="home unselectable" to="/">cam clickr</Link>
+                    <Link className="home unselectable" to="/">
+                        <img src={`${window.logo}`} />
+                        cam clickr
+                    </Link>
                     <ul className="home-nav">
                         <li className="home-nav-item you-dropdown">
                             <Link className="you-dropdown-link unselectable" to={`/photos/${currentUser.id}`}>You</Link>
