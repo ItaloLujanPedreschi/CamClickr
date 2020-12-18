@@ -21,7 +21,7 @@ export default ({ currentUser }) => {
                             </a>
                         </li>
                         <li className="footer-link">
-                            <a href="https://italolujanpedreschi.github.io/" target="_blank">
+                            <a href="https://italolujan.com/" target="_blank">
                                 <FaPortrait className="footer-icon" />
                             </a>
                         </li>
