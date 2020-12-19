@@ -32,7 +32,7 @@ export const getComment = id => dispatch => CommentAPIUtil.getComment(id)
     .then(comment => dispatch(receiveComment(comment)));
 
 export const postComment = commentForm => dispatch => CommentAPIUtil.postComment(commentForm)
-    .then(comments => dispatch(receiveComments(comments)),
+    .then(comments => dispatch(receiveComments([comments])),
         errors => dispatch(receiveCommentErrors(errors.responseJSON)))
 ;
 

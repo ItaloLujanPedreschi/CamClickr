@@ -45,7 +45,7 @@ class PhotoShow extends React.Component {
             backLink = `/photos/${photo.user_id}`
             backLinkText = "photostream";
         }
-
+        
         if (photo) {
             return (
                 <div className="photo-container">
@@ -63,7 +63,10 @@ class PhotoShow extends React.Component {
                             <p>{photo.description}</p>
                         </div>
                     </div>
-                    <CommentsIndexContainer photoId={photo.id} />
+                    <div className="photo-social">
+                        <CommentsIndexContainer photoId={photo.id} />
+                        <p>{photo.created_at}</p>
+                    </div>
                 </div>
             );
         } else {
