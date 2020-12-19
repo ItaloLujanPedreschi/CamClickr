@@ -12,7 +12,7 @@ class Api::PhotosController < ApplicationController
     def create
         @photo = Photo.new(params.require(:photo).permit(:image, :title, :description))
         @photo.user_id = current_user.id
-        if @photo.save!
+        if @photo.save
             render :show
         else
             render json: @photo.errors.full_messages, status: 422

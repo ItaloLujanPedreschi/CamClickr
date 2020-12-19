@@ -14,7 +14,7 @@ class Api::AlbumsController < ApplicationController
         @album = Album.new({ name: album_params[:name], description: album_params[:description] })
         @album.user_id = current_user.id
         photo_ids = album_params[:photo_ids].map(&:to_i)
-        if !photo_ids.nil? && photo_ids.length > 0 && @album.save!
+        if !photo_ids.nil? && photo_ids.length > 0 && @album.save
             photo_ids.each do |photo_id|
                 PhotoAlbumLink.create({ photo_id: photo_id, album_id: @album.id })
             end
