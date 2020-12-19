@@ -29,10 +29,7 @@ export const getPhotos = () => dispatch => PhotoAPIUtil.getPhotos()
     .then(photos => dispatch(receivePhotos(photos)));
 
 export const getPhoto = id => dispatch => PhotoAPIUtil.getPhoto(id)
-    .then(photo => {
-        dispatch(receivePhoto(photo));
-        return photo;
-    });
+    .then(photo => dispatch(receivePhoto(photo)));
 
 export const postPhoto = photoForm => dispatch => PhotoAPIUtil.postPhoto(photoForm)
     .then(photos => dispatch(receivePhotos(photos)),

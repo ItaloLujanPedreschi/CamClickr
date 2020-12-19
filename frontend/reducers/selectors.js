@@ -5,3 +5,7 @@ export const selectAllPhotos = state => {
 export const selectAllAlbums = state => {
     return Object.values(state.entities.albums)
 };
+
+export const selectAllComments = state => {
+    return Object.values(state.entities.comments)
+};

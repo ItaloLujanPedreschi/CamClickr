@@ -20,5 +20,11 @@ class Photo < ApplicationRecord
     foreign_key: :photo_id,
     class_name: :PhotoAlbumLink
 
+    has_many :comments,
+    primary_key: :id,
+    foreign_key: :photo_id,
+    class_name: :Comment,
+    dependent: :destroy
+
     has_one_attached :image
 end

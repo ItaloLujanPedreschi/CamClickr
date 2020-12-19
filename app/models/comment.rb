@@ -10,9 +10,9 @@
 #  updated_at :datetime         not null
 #
 class Comment < ApplicationRecord
-   validates :user_id, :photo_id, :body, presence: true
+    validates :user_id, :photo_id, :body, presence: true
 
-   belongs_to :photo,
+    belongs_to :photo,
     primary_key: :id,
     foreign_key: :photo_id,
     class_name: :Photo
