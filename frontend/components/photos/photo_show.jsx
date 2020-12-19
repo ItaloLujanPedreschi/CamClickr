@@ -58,8 +58,10 @@ class PhotoShow extends React.Component {
                     </div>
                     <div className="photo-info">
                         <Link to={`/photos/${photo.user_id}`}>{this.props.users[photo.user_id].fname} {this.props.users[photo.user_id].lname}</Link>
-                        <h3>{photo.title}</h3>
-                        <p>{photo.description}</p>
+                        <div className="photo-details">
+                            <h3>{photo.title}</h3>
+                            <p>{photo.description}</p>
+                        </div>
                     </div>
                     <CommentsIndexContainer photoId={photo.id} />
                 </div>

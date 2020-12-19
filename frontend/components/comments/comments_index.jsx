@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentsIndexItemContainer from './comments_index_item_container';
 
 class CommentsIndex extends React.Component {
     constructor(props) {
@@ -19,11 +20,7 @@ class CommentsIndex extends React.Component {
         return (
             <div className="comments-list">
                 {comments.map(comment => {
-                    return (
-                        <div className="comment">
-                            <p>{comment.body}</p>
-                        </div>
-                    )
+                    return <CommentsIndexItemContainer key={comment.id} comment={comment} />
                 })}
             </div>
         )
