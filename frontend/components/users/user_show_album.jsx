@@ -10,8 +10,7 @@ class UserShowAlbum extends React.Component {
 
     handleDelete(e) {
         e.preventDefault;
-        this.props.deleteAlbum(this.props.album.id)
-            .then(this.props.history.push('/explore'))
+        this.props.deleteAlbum(this.props.album.id);
     }
 
     render() {
@@ -40,17 +39,17 @@ class UserShowAlbum extends React.Component {
         }
 
         return (
-            <Link to={`/photos/${currentUser.id}/albums/${album.id}`}>
-                <div className="album-item" style={style}>
+            <div className="album-item" style={style}>
+                <Link to={`/photos/${currentUser.id}/albums/${album.id}`}>
                     <div className="album-overlay">
                         <h4 className="album-name">{album.name}</h4>
                         <p className="num-photos">{album.photos.length} {numPhotos}</p>
                     </div>
-                    <div className="album-actions">
-                        {albumDelete}
-                    </div>
+                </Link>
+                <div className="album-actions">
+                    {albumDelete}
                 </div>
-            </Link>
+            </div>
         );
     }
 }

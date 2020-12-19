@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { getPhotos } from '../../actions/photo_actions';
-import { getAlbums } from '../../actions/album_actions';
-import { selectAllPhotos, selectAllAlbums} from './../../reducers/selectors';
+import { getAlbums, deleteAlbum } from '../../actions/album_actions';
+import { selectAllPhotos, selectAllAlbums } from './../../reducers/selectors';
 import UserShow from './user_show';
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
     getPhotos: () => dispatch(getPhotos()),
     getAlbums: () => dispatch(getAlbums()),
+    deleteAlbum: albumId => dispatch(deleteAlbum(albumId))
 });
 
 export default connect(

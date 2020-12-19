@@ -27,13 +27,13 @@ const removeAlbum = albumId => ({
 
 export const getAlbums = () => dispatch => AlbumAPIUtil.getAlbums()
     .then(albums => {
-        dispatch(receiveAlbums(albums));
+        return dispatch(receiveAlbums(albums));
     });
 
 export const getAlbum = id => dispatch => AlbumAPIUtil.getAlbum(id)
     .then(album => {
-        dispatch(receiveAlbum(album));
-        return album;
+        return dispatch(receiveAlbum(album));
+        // return album;
     });
 
 export const postAlbum = albumForm => dispatch => AlbumAPIUtil.postAlbum(albumForm)

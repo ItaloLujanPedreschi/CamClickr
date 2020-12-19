@@ -37,6 +37,7 @@ class UserShow extends React.Component {
 
     render() {
         const { user, photos, albums } = this.props;
+        // debugger;
         const userPhotos = photos.filter(photo => {
             return parseInt(photo.user_id) === user.id;
         });
@@ -57,7 +58,7 @@ class UserShow extends React.Component {
                         </div>
                         <div className="albums-array">
                             <div className="albums-grid">
-                                {userAlbums.map(album => <UserShowAlbum key={album.id} album={album} currentUser={user} />)}
+                                {userAlbums.map(album => <UserShowAlbum key={album.id} album={album} currentUser={user} deleteAlbum={this.props.deleteAlbum} history={this.props.history} />)}
                             </div>
                         </div>
                     </div>
