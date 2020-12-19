@@ -3,14 +3,13 @@
 # Table name: photo_album_links
 #
 #  id         :bigint           not null, primary key
-#  photo_id   :string           not null
 #  album_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  photo_id   :integer
 #
 class PhotoAlbumLink < ApplicationRecord
-    validates :photo_id, presence: true
-    validates :album_id, presence: true
+    validates :photo_id, :album_id, presence: true
 
     belongs_to :photo,
     primary_key: :id,
