@@ -26,19 +26,14 @@ const removeAlbum = albumId => ({
 })
 
 export const getAlbums = () => dispatch => AlbumAPIUtil.getAlbums()
-    .then(albums => {
-        return dispatch(receiveAlbums(albums));
-    });
+    .then(albums => dispatch(receiveAlbums(albums)));
 
 export const getAlbum = id => dispatch => AlbumAPIUtil.getAlbum(id)
-    .then(album => {
-        return dispatch(receiveAlbum(album));
-        // return album;
-    });
+    .then(album => dispatch(receiveAlbum(album)));
 
 export const postAlbum = albumForm => dispatch => AlbumAPIUtil.postAlbum(albumForm)
-    .then(albums => dispatch(receiveAlbums(albums)),
-        errors => dispatch(receiveAlbumErrors(errors.responseJSON)))
+    .then(albums => dispatch(receiveAlbums([albums])),
+        errors => dispatch(receiveAlbumErrors(errors.responseJSON)));
 ;
 
 export const deleteAlbum = albumId => dispatch => AlbumAPIUtil.deleteAlbum(albumId)

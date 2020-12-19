@@ -36,8 +36,6 @@ class Api::AlbumsController < ApplicationController
     def destroy
         @album = Album.find_by(id: params[:id])
         @album.destroy
-
-        render :index
     end
 
     private
