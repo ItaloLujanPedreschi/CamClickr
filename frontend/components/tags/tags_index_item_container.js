@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { deleteTag } from './../../actions/tag_actions';
-import TagsIndexItem from './comments_index_item';
+import TagsIndexItem from './tags_index_item';
 
 const mapStateToProps = state => ({
     currentUser: state.entities.users[state.session.id]

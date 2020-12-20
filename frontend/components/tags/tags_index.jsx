@@ -1,5 +1,6 @@
 import React from 'react';
 import TagFormContainer from './tag_form_container';
+import TagsIndexItemContainer from './tags_index_item_container';
 
 class TagsIndex extends React.Component {
     constructor(props) {
@@ -11,26 +12,40 @@ class TagsIndex extends React.Component {
     }
 
     render() {
-        const { tags, currentUser, photoId } = this.props;
+        const { tags, currentUser, photoId, photoOwnerId } = this.props;
 
         const photoTags = tags.filter(tag => {
             return parseInt(tag.photo_id) === photoId;
         });
-        // debugger;
+
+        let addTags;
+
+        let tagForm;
+
+        if (currentUser.id == photoOwnerId) {
+            addTags = (
+                <button>
+                    Add tags
+                </button>
+            )
+            tagForm = <TagFormContainer photoId={photoId}/>;
+        } else {
+            addTags = null;
+            tagForm = null;
+        }
+        
         return (
             <div className="tags-container">
                 <div className="tags-controls">
                     <p>Tags</p>
-                    <button>
-                        Add tags
-                    </button>
+                    {addTags}
                 </div>
                 {photoTags.map(tag => {
                     return (
-                        <p className="tag">{tag.name}</p>
+                        <TagsIndexItemContainer key={tag.id} tag={tag} photoOwnerId={photoOwnerId} />
                     )
                 })}
-                <TagFormContainer photoId={photoId}/>
+                {tagForm}
             </div>
         )
     }

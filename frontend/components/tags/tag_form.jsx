@@ -21,10 +21,8 @@ class TagForm extends React.Component {
     handleSubmit(e) {
         console.log("click");
         e.preventDefault();
-        debugger;
         this.props.postTag({ tag: this.state });
     }
-
 
     render() {
         let disabled;
@@ -44,9 +42,8 @@ class TagForm extends React.Component {
                     placeholder="Add a tag"
                 />
                 <input
-                    id="comment-submit"
+                    id="tag-submit"
                     type="submit"
-                    value="Comment"
                     disabled={disabled}
                 />
             </form>

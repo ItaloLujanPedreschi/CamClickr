@@ -69,7 +69,7 @@ class PhotoShow extends React.Component {
                             <CommentsIndexContainer photoId={photo.id} />
                         </div>
                         <div className="photo-social-right">
-                            <TagsIndexContainer photoId={photo.id} />
+                            <TagsIndexContainer photoId={photo.id} photoOwnerId={photo.user_id} />
                         </div>
                     </div>
                 </div>

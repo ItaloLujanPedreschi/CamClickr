@@ -7,25 +7,25 @@ class CommentsIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.handleDelete = this.handleDelete.bind(this);
-        this.handleEdit = this.handleEdit.bind(this);
+        // this.handleEdit = this.handleEdit.bind(this);
     }
 
     handleDelete() {
         this.props.deleteComment(this.props.comment.id);
     }
 
-    handleEdit() {
+    // handleEdit() {
 
-    }
+    // }
 
     render() {
         const { comment, currentUser } = this.props;
         
-        let deletePhoto;
-        let editPhoto;
+        let deleteComment;
+        let editComment;
 
         if (currentUser.id = comment.user_id) {
-            deletePhoto = (
+            deleteComment = (
                 <button
                     className="comment-delete-button"
                     onClick={this.handleDelete}
@@ -34,7 +34,7 @@ class CommentsIndexItem extends React.Component {
                     <CgTrash />
                 </button>
             )
-            editPhoto = (
+            editComment = (
                 <button
                     className="comment-edit-button"
                     onClick={this.handleEdit}
@@ -44,8 +44,8 @@ class CommentsIndexItem extends React.Component {
                 </button>
             )
         } else {
-            deletePhoto = null;
-            editPhoto = null;
+            deleteComment = null;
+            editComment = null;
         }
         
         return (
@@ -55,8 +55,8 @@ class CommentsIndexItem extends React.Component {
                     <p className="comment-body">{comment.body}</p>
                 </div>
                 <div className="comment-actions">
-                    {/* {editPhoto} */}
-                    {deletePhoto}
+                    {/* {editComment} */}
+                    {deleteComment}
                 </div>
             </div>
         )
