@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 import { CgTrash } from 'react-icons/cg';
 import CommentsIndexContainer from './../comments/comments_index_container';
+import TagsIndexContainer from './../tags/tags_index_container';
 
 class PhotoShow extends React.Component {
     constructor(props) {
@@ -64,9 +65,11 @@ class PhotoShow extends React.Component {
                         </div>
                     </div>
                     <div className="photo-social">
-                        <CommentsIndexContainer photoId={photo.id} />
-                        <div>
-                            <p>Tags</p>
+                        <div className="photo-social-left">
+                            <CommentsIndexContainer photoId={photo.id} />
+                        </div>
+                        <div className="photo-social-right">
+                            <TagsIndexContainer photoId={photo.id} />
                         </div>
                     </div>
                 </div>

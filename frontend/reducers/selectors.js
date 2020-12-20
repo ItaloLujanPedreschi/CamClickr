@@ -9,3 +9,7 @@ export const selectAllAlbums = state => {
 export const selectAllComments = state => {
     return Object.values(state.entities.comments)
 };
+
+export const selectAllTags = state => {
+    return Object.values(state.entities.tags)
+};
