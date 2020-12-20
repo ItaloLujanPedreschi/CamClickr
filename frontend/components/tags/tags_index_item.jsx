@@ -7,22 +7,16 @@ class TagsIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.handleDelete = this.handleDelete.bind(this);
-        this.handleEdit = this.handleEdit.bind(this);
     }
 
     handleDelete() {
         this.props.deleteTag(this.props.tag.id);
     }
 
-    handleEdit() {
-
-    }
-
     render() {
-        const { comment, currentUser } = this.props;
+        const { tag, currentUser } = this.props;
         
         let deletePhoto;
-        let editPhoto;
 
         if (currentUser.id = comment.user_id) {
             deletePhoto = (
@@ -34,18 +28,8 @@ class TagsIndexItem extends React.Component {
                     <CgTrash />
                 </button>
             )
-            editPhoto = (
-                <button
-                    className="comment-edit-button"
-                    onClick={this.handleEdit}
-                    type="button"
-                >
-                    <BiEdit />
-                </button>
-            )
         } else {
             deletePhoto = null;
-            editPhoto = null;
         }
         
         return (
@@ -55,7 +39,6 @@ class TagsIndexItem extends React.Component {
                     <p className="comment-body">{comment.body}</p>
                 </div>
                 <div className="comment-actions">
-                    {/* {editPhoto} */}
                     {deletePhoto}
                 </div>
             </div>
