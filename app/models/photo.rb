@@ -26,5 +26,12 @@ class Photo < ApplicationRecord
     class_name: :Comment,
     dependent: :destroy
 
+    has_many :tags,
+    primary_key: :id,
+    foreign_key: :photo_id,
+    class_name: :Tag,
+    dependent: :destroy
+
+
     has_one_attached :image
 end

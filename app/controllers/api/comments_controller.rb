@@ -1,7 +1,6 @@
 class Api::CommentsController < ApplicationController
     def index
         @comments = Comment.all
-        # @comments = Comment.find_by(photo_id: params[:photo_id])
         render :index
     end
 
