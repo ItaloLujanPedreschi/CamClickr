@@ -22,6 +22,7 @@ class CommentForm extends React.Component {
         console.log("click");
         e.preventDefault();
         this.props.postComment({ comment: this.state });
+        this.setState({ body: "" });
     }
 
 

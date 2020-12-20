@@ -3,11 +3,56 @@
     height: 100%;
 
     .tags-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
+        p {
+            color: rgba(0, 109, 172, 1);
+            font-size: 16px;
+        }
+
+        button {
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            font-size: 14px;
+            color: rgba(0, 109, 172, 1);
+        }
+
+        button:hover {
+            text-decoration: underline;
+        }
+    }
+
+    form {
+
+        #tag-name {
+            padding: 6px 10px;
+            border: 1px solid rgba(158, 164, 167, 1);
+            border-radius: 3px;
+            font-size: 14px;
+            line-height: 1.5;
+            height: 21px;
+            width: 182.5px;
+        }
+
+        #tag-name:focus {
+            border: 1px solid rgba(0, 141, 223, 1);
+        }
+
+        #tag-submit {
+            display: none;
+        }
     }
 
     .tag-item {
         display: inline-block;
+        margin-right: 5px;
 
         .tag {
             background-color: rgba(207, 214, 217, 1);
@@ -35,11 +80,10 @@
                 color: inherit;
                 border: none;
                 padding: 0;
-                margin: 5.5px 0;
                 font: inherit;
                 cursor: pointer;
                 outline: inherit;
-                // display: none;
+                margin: 5.5px 0;
                 width: 0px;
                 height: 16px;
 
@@ -65,17 +109,6 @@
                 svg {
                     display: block;
                 }
-            }
-        }
-
-        form {
-
-            input[type=text] {
-
-            }
-
-            input[type=submit] {
-                display: none;
             }
         }
     }

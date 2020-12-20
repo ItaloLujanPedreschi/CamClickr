@@ -24,7 +24,8 @@ class TagsIndex extends React.Component {
 
         if (currentUser.id == photoOwnerId) {
             addTags = (
-                <button>
+                <button
+                    type="button">
                     Add tags
                 </button>
             )

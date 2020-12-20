@@ -22,6 +22,7 @@ class TagForm extends React.Component {
         console.log("click");
         e.preventDefault();
         this.props.postTag({ tag: this.state });
+        this.setState({ name: "" });
     }
 
     render() {
@@ -36,6 +37,7 @@ class TagForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <input
+                    id="tag-name"
                     type="text"
                     onChange={this.handleInput()}
                     value={this.state.name}
