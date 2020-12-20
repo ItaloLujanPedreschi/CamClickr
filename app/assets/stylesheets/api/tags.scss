@@ -1,4 +1,82 @@
 .tags-container {
     width: 420px;
     height: 100%;
+
+    .tags-controls {
+
+    }
+
+    .tag-item {
+        display: inline-block;
+
+        .tag {
+            background-color: rgba(207, 214, 217, 1);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: max-content;
+            height: 21px;
+            padding: 3px 0;
+            border-radius: 5px;
+
+            .tag-name {
+                display: inline-block;
+                color: rgba(33, 33, 36, 1);
+                width: max-content;
+                font-size: 14px;
+                padding: 0 10px;
+                margin: 0;
+            }
+
+            button {
+                display: inline-block;
+                transition: 0.2s;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                margin: 5.5px 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+                // display: none;
+                width: 0px;
+                height: 16px;
+
+                svg {
+                    color: rgba(255, 255, 255, 1);
+                    display: none;
+                }
+            }
+        }
+
+        .tag:hover {
+            background-color: rgba(134, 141, 145, 1);
+            padding-right: 1px;
+
+            .tag-name {
+                color: rgba(255, 255, 255, 1);
+            }
+
+            button {
+                // display: block;
+                width: 16px;
+
+                svg {
+                    display: block;
+                }
+            }
+        }
+
+        form {
+
+            input[type=text] {
+
+            }
+
+            input[type=submit] {
+                display: none;
+            }
+        }
+    }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IoCloseOutline } from 'react-icons/io';
+import { VscClose } from 'react-icons/vsc';
 
 class TagsIndexItem extends React.Component {
     constructor(props) {
@@ -23,8 +23,7 @@ class TagsIndexItem extends React.Component {
                     onClick={this.handleDelete}
                     type="button"
                 >
-                    {/* <IoCloseOutline /> */}
-                    <p>X</p>
+                    <VscClose />
                 </button>
             )
         } else {
@@ -32,9 +31,11 @@ class TagsIndexItem extends React.Component {
         }
         
         return (
-            <div className="tag">
-                <p className="tag-name">{tag.name}</p>
-                {deleteTag}
+            <div className="tag-item">
+                <div className="tag">
+                    <p className="tag-name">{tag.name}</p>
+                    {deleteTag}
+                </div>
             </div>
         )
     }

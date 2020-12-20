@@ -40,12 +40,12 @@ class TagsIndex extends React.Component {
                     <p>Tags</p>
                     {addTags}
                 </div>
+                {tagForm}
                 {photoTags.map(tag => {
                     return (
                         <TagsIndexItemContainer key={tag.id} tag={tag} photoOwnerId={photoOwnerId} />
                     )
                 })}
-                {tagForm}
             </div>
         )
     }
