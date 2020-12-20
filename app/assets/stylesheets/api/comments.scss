@@ -1,19 +1,20 @@
 .comments-container {
-    width: 100%;
+    width: 420px;
     height: 100%;
 
     .comments-list {
         height: 100%;
-        width: 40%;
+        width: 420px;
         margin: 0;
 
         .comment {
+            transition: 0.4s;
             display: flex;
             justify-content: space-between;
             height: 40px;
             color: black;
             font-size: 14px;
-            margin-bottom: 10px;
+            margin: 5px 0;
             padding: 5px 0 5px 5px;
 
             .comment-content {
@@ -30,10 +31,53 @@
                     margin: 0;
                 }
             }
+
+            .comment-actions {
+
+                button {
+                    background: none;
+                    color: inherit;
+                    border: none;
+                    padding: 0;
+                    font: inherit;
+                    cursor: pointer;
+                    outline: inherit;
+                    margin-right: 4px;
+
+                    svg {
+                        display: none;
+                        color: rgba(203, 205, 206, 1);
+                        width: 24px;
+                        height: 24px;
+                    }
+
+                    svg:hover {
+                        color: rgba(143, 147, 150, 1);
+                    }
+                }
+
+                .comment-delete-button {
+                    margin-right: 8px;
+                }
+            }
+        }
+
+        .comment:hover {
+            background-color: rgba(255, 255, 255, 1);
+
+            .comment-actions {
+
+                button {
+                    svg {
+                        display: block;
+                    }
+                }
+            }
         }
     }
 
     form {
+        margin-top: 15px;
 
         textarea {
             border: none;
@@ -45,8 +89,29 @@
             resize: none;
             width: 420px;
             height: 90px;
+            padding: 6px 10px;
             border: 1px solid rgba(0, 141, 223, 1);
             border-radius: 3px;
+        }
+
+        textarea::-webkit-input-placeholder {
+            font-family: sans-serif;
+        }
+
+        textarea:-moz-placeholder { /* Firefox 18- */
+            font-family: sans-serif;  
+        }
+
+        textarea::-moz-placeholder {  /* Firefox 19+ */
+            font-family: sans-serif;  
+        }
+
+        textarea:-ms-input-placeholder {
+            font-family: sans-serif;  
+        }
+
+        textarea::placeholder {
+            font-family: sans-serif;  
         }
     }
 }

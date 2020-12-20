@@ -65,7 +65,9 @@ class PhotoShow extends React.Component {
                     </div>
                     <div className="photo-social">
                         <CommentsIndexContainer photoId={photo.id} />
-                        <p>{photo.created_at}</p>
+                        <div>
+                            <p>Tags</p>
+                        </div>
                     </div>
                 </div>
             );
