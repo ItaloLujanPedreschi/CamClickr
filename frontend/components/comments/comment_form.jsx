@@ -43,6 +43,7 @@ class CommentForm extends React.Component {
                     placeholder="Add a comment"
                 ></textarea>
                 <input
+                    id="comment-submit"
                     type="submit"
                     value="Comment"
                     disabled={disabled}

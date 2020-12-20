@@ -55,7 +55,7 @@ class CommentsIndexItem extends React.Component {
                     <p className="comment-body">{comment.body}</p>
                 </div>
                 <div className="comment-actions">
-                    {editPhoto}
+                    {/* {editPhoto} */}
                     {deletePhoto}
                 </div>
             </div>
