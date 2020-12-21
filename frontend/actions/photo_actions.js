@@ -33,8 +33,7 @@ export const getPhoto = id => dispatch => PhotoAPIUtil.getPhoto(id)
 
 export const postPhoto = photoForm => dispatch => PhotoAPIUtil.postPhoto(photoForm)
     .then(photo => dispatch(receivePhoto(photo)),
-        errors => dispatch(receivePhotoErrors(errors.responseJSON)))
-;
+        errors => dispatch(receivePhotoErrors(errors.responseJSON)));
 
 export const deletePhoto = photoId => dispatch => PhotoAPIUtil.deletePhoto(photoId)
     .then(() => dispatch(removePhoto(photoId)));

@@ -14,12 +14,12 @@ class CommentsIndexItem extends React.Component {
     }
 
     render() {
-        const { comment, currentUser } = this.props;
-        
+        const { comment, currentUser, photoOwnerId } = this.props;
+    
         let deleteComment;
         let editComment;
 
-        if (currentUser.id === comment.user_id) {
+        if (currentUser.id === comment.user_id || currentUser.id == photoOwnerId) {
             deleteComment = (
                 <button
                     className="comment-delete-button"

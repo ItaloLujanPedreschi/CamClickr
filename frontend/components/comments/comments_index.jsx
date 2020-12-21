@@ -12,7 +12,7 @@ class CommentsIndex extends React.Component {
     }
 
     render() {
-        const { comments, photoId } = this.props;
+        const { comments, photoId, photoOwnerId } = this.props;
         
         const photoComments = comments.filter(comment => {
             return parseInt(comment.photo_id) === photoId;
@@ -22,7 +22,7 @@ class CommentsIndex extends React.Component {
             <div className="comments-container">
                 <div className="comments-list">
                     {photoComments.map(comment => {
-                        return <CommentsIndexItemContainer key={comment.id} comment={comment} />
+                        return <CommentsIndexItemContainer key={comment.id} comment={comment} photoOwnerId={photoOwnerId} />
                     })}
                 </div>
                 <CommentFormContainer photoId={photoId} />
