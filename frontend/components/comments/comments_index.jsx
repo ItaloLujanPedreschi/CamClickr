@@ -12,16 +12,16 @@ class CommentsIndex extends React.Component {
     }
 
     render() {
-        const { comments, currentUser, photoId } = this.props;
-
+        const { comments, photoId } = this.props;
+        
         const photoComments = comments.filter(comment => {
-            return parseInt(comment.user_id) === currentUser.id;
+            return parseInt(comment.photo_id) === photoId;
         });
 
         return (
             <div className="comments-container">
                 <div className="comments-list">
-                    {comments.map(comment => {
+                    {photoComments.map(comment => {
                         return <CommentsIndexItemContainer key={comment.id} comment={comment} />
                     })}
                 </div>

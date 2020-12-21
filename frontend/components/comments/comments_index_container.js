@@ -4,8 +4,7 @@ import { selectAllComments } from './../../reducers/selectors';
 import CommentsIndex from './comments_index';
 
 const mapStateToProps = state => ({
-    comments: selectAllComments(state),
-    currentUser: state.entities.users[state.session.id]
+    comments: selectAllComments(state)
 });
 
 const mapDispatchToProps = dispatch => ({
