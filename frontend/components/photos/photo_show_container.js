@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { getPhoto, deletePhoto } from '../../actions/photo_actions';
+import { getUsers } from '../../actions/user_actions';
 import PhotoShow from './photo_show';
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
+    getUsers: () => dispatch(getUsers()),
     getPhoto: photoId => dispatch(getPhoto(photoId)),
     deletePhoto: photoId => dispatch(deletePhoto(photoId))
 });

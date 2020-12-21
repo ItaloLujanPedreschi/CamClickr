@@ -12,6 +12,7 @@ class PhotoShow extends React.Component {
     }
 
     componentDidMount() {
+        this.props.getUsers();
         this.props.getPhoto(this.props.match.params.photoId);
     }
 
