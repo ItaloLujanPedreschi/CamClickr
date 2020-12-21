@@ -31,3 +31,9 @@ CamClickr is a Flickr inspired clone, meant to replicate its image hosting featu
 The image spread is present on the explore, user photos, and album pages. Each row maintains a uniform width allowing for a seamless array of pictures that can be viewed left to right.
 
 ![Photo Index Demo](https://github.com/ItaloLujanPedreschi/CamClickr/blob/master/app/assets/images/github-visuals/photo_index_demo.png)
+
+## Photo Upload
+
+Multiple images can be uploaded at once for a more rapid user upload experience. They can be individually edited to have different titles and descriptions all within the upload form.
+
+![Photo Upload](https://github.com/ItaloLujanPedreschi/CamClickr/blob/master/app/assets/images/github-visuals/photo_upload.png)
