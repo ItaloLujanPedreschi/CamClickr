@@ -7,6 +7,9 @@
         
         <%= stylesheet_link_tag    'application', media: 'all' %>
         <%= javascript_include_tag 'application' %>
+
+        <%= favicon_link_tag asset_path('upload-bar/favicon.png') %>
+
         <script>
         window.logo = "<%= image_url("upload-bar/flickr-logo.png") %>"
         window.uploadButton = "<%= image_url("upload-bar/upload-icon.png") %>"
