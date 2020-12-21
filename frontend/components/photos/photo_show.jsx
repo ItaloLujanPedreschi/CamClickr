@@ -27,31 +27,31 @@ class PhotoShow extends React.Component {
     render() {
         const { photo, currentUser } = this.props;
 
-        const photoDelete = photo && photo.user_id == currentUser.id ? (
-            <button
-                className="photo-delete-button"
-                onClick={this.handleDelete}
-                type="button"
-            >
-                <CgTrash />
-            </button>
-        ) : (null)
-        let backLink;
-        let backLinkText;
+        if (photo !== undefined) {
+            const photoDelete = photo && photo.user_id == currentUser.id ? (
+                <button
+                    className="photo-delete-button"
+                    onClick={this.handleDelete}
+                    type="button"
+                >
+                    <CgTrash />
+                </button>
+            ) : (null)
+            let backLink;
+            let backLinkText;
 
-        let path = this.props.location.pathname;
-        if (path.includes("explore")) {
-            backLink = "/explore"
-            backLinkText = "explore";
-        } else if (path.includes("album")) {
-            backLink = `/photos/${photo.user_id}/albums/${path.split("/")[5]}`
-            backLinkText = "album";
-        } else {
-            backLink = `/photos/${photo.user_id}`
-            backLinkText = "photostream";
-        }
+            let path = this.props.location.pathname;
+            if (path.includes("explore")) {
+                backLink = "/explore"
+                backLinkText = "explore";
+            } else if (path.includes("album")) {
+                backLink = `/photos/${photo.user_id}/albums/${path.split("/")[5]}`
+                backLinkText = "album";
+            } else {
+                backLink = `/photos/${photo.user_id}`
+                backLinkText = "photostream";
+            }
         
-        if (photo) {
             return (
                 <div className="photo-container">
                     <div className="photo-show">
