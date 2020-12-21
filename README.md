@@ -1,5 +1,5 @@
 # CamClickr
-![Pomegranate Banner]("/Users/italo/Desktop/Full Stack/CamClickr/app/assets/images/github-visuals/welcome_page.png")
+![Pomegranate Banner](/Users/italo/Desktop/CamClickr/app/assets/images/github-visuals/welcome_page.png)
 <div align="center">
   <a href="https://cam-clickr.herokuapp.com/#/" target="_blank">Live Site</a>
 </div>
