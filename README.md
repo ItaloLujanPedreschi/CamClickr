@@ -9,7 +9,8 @@ CamClickr is a Flickr inspired clone, meant to replicate its image hosting featu
 # Technologies Stack
 
 * Ruby on Rails - REST architecture allowed for efficient API endpoints
-                - Integrated PostgreSQL support.
+
+- Integrated PostgreSQL support
 * React/Redux - Redux state is normalized to allow for access to any necessary information at any location in the web application
 * PostgreSQL
 * AWS S3/Rails Active Storage - Allowed for cloud based file hosting
