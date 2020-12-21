@@ -13,6 +13,7 @@ class PhotosIndex extends React.Component {
 
     render() {
         const { photos, users } = this.props;
+
         if (Object.values(users).length > 1) {
             return (
                 <div className="explore-background">

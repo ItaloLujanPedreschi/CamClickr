@@ -32,7 +32,7 @@ export const getPhoto = id => dispatch => PhotoAPIUtil.getPhoto(id)
     .then(photo => dispatch(receivePhoto(photo)));
 
 export const postPhoto = photoForm => dispatch => PhotoAPIUtil.postPhoto(photoForm)
-    .then(photos => dispatch(receivePhotos(photos)),
+    .then(photo => dispatch(receivePhoto(photo)),
         errors => dispatch(receivePhotoErrors(errors.responseJSON)))
 ;
 

@@ -4,7 +4,7 @@ const photosReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_PHOTOS:
-            let clearState = {};
+            let clearState = Object.assign({}, state);
             let photos = Object.values(action.photos);
             photos.forEach(photo => {
                 clearState[photo.id] = photo;
