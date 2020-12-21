@@ -71,7 +71,7 @@ class AlbumForm extends React.Component {
 
         let disabled;
 
-        if (this.state.name === "") { //&& this.state.photo_ids.length === 0) {
+        if (this.state.name === "") {
             disabled = true;
         } else {
             disabled = false;
