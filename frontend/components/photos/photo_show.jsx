@@ -19,7 +19,7 @@ class PhotoShow extends React.Component {
     handleDelete(e) {
         e.preventDefault;
         this.props.deletePhoto(this.props.photo.id)
-            .then(this.props.history.push('/explore'));
+            .then(this.props.history.push(`/photos/${this.props.currentUser.id}`));
     }
 
     render() {

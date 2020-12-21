@@ -19,7 +19,6 @@ class TagForm extends React.Component {
     }
 
     handleSubmit(e) {
-        console.log("click");
         e.preventDefault();
         this.props.postTag({ tag: this.state });
         this.setState({ name: "" });

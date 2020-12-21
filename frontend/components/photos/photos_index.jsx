@@ -32,9 +32,3 @@ class PhotosIndex extends React.Component {
 }
 
 export default PhotosIndex;
-
-// list of photos
-// cycle through list scaling photos down to 324px height
-// when combined width of scaled down images is greater than container width, stop cycling and scale down images until combined width is equal to container width
-// pass heights down as prop
-// use props to inline style images
