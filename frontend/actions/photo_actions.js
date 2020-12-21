@@ -35,5 +35,9 @@ export const postPhoto = photoForm => dispatch => PhotoAPIUtil.postPhoto(photoFo
     .then(photo => dispatch(receivePhoto(photo)),
         errors => dispatch(receivePhotoErrors(errors.responseJSON)));
 
+export const editPhoto = (photoEditForm, id) => dispatch => PhotoAPIUtil.editPhoto(photoEditForm, id)
+    .then(photo => dispatch(receivePhoto(photo)),
+        errors => dispatch(receivePhotoErrors(errors.responseJSON)));
+
 export const deletePhoto = photoId => dispatch => PhotoAPIUtil.deletePhoto(photoId)
     .then(() => dispatch(removePhoto(photoId)));

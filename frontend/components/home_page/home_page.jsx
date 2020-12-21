@@ -22,7 +22,7 @@ class HomePage extends React.Component {
                     <h3>Join the Cam Clickr community, home to tens of billions of photos and 2 million groups.</h3>
                     <button id="home-button" className="home-button" onClick={() => demoLogin(demoUser)}>
                         Start for free
-                        </button>
+                    </button>
                 </div>
             </div>
         )

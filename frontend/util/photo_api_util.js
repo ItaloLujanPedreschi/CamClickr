@@ -22,6 +22,14 @@ export const postPhoto = formData => {
     });
 }
 
+export const editPhoto = (formData, id) => {
+    return $.ajax({
+        url: `/api/photos/${id}`,
+        method: 'PATCH',
+        data: formData
+    });
+}
+
 export const deletePhoto = photoId => {
     return $.ajax({
         url: `/api/photos/${photoId}`,

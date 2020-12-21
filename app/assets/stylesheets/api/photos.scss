@@ -146,24 +146,95 @@
     }
 
     .photo-details {
-        padding: 5px;
-        width: auto;
+        width: 418px;
         height: 100%;
         margin-top: 16px;
 
-        h3 {
-            color: rgba(33, 33, 36, 1);
-            font-size: 16px;
-            font-weight: 600;
-            margin: 0;
-            margin-bottom: 16px;
+        .photo-info-details, .photo-details-not-owner {
+            transition: 0.4s;
+            padding: 5px;
+            width: 418px;
+            height: 100%;
+
+            h3 {
+                color: rgba(33, 33, 36, 1);
+                font-size: 16px;
+                font-weight: 600;
+                width: 380px;
+                margin: 0;
+                margin-bottom: 16px;
+            }
+
+            p {
+                color: rgba(33, 33, 36, 1);
+                font-size: 14px;
+                font-weight: 400;
+                margin: 0;
+            }
+
+            svg {
+                transition: 0.2s;
+                display: none;
+                float: right;
+                color: rgba(143, 147, 150, 1);
+                width: 24px;
+                height: 24px;
+                opacity: 0.47;
+            }
         }
 
-        p {
-            color: rgba(33, 33, 36, 1);
-            font-size: 14px;
-            font-weight: 400;
-            margin: 0;
+        .photo-info-details:hover {
+            background-color: rgba(0, 0, 0, .05);
+
+            svg {
+                display: block;
+            }
+
+            svg:hover {
+                opacity: 1;
+            }
+        }
+
+        #edit-photo {
+            width: 418px;
+            height: 170px;
+
+            #edit-photo-title {
+                border: 1px solid rgba(158, 164, 167, 1);
+                border-radius: 3px;
+                padding: 0;
+                padding-left: 10px;
+                width: 406px;
+                height: 32px;
+                margin-bottom: 10px;
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            #edit-photo-description {
+                border: none;
+                overflow: auto;
+                outline: none;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+                resize: none;
+                padding: 10px;
+                height: 60px;
+                width: 396px;
+                border: 1px solid rgba(158, 164, 167, 1);
+                border-radius: 3px;
+                margin-bottom: 10px;
+                font-family: sans-serif;
+            }
+
+            #edit-photo-submit {
+                width: 84px;
+                height: 32px;
+                padding: 0 8px;
+                margin: 0;
+                float: right;
+            }
         }
     }
 }
