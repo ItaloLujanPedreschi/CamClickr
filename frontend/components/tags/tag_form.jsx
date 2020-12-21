@@ -27,19 +27,27 @@ class TagForm extends React.Component {
 
     render() {
         let disabled;
+        let blur;
 
         if (this.state.name !== "") {
             disabled = false;
+            blur = this.handleSubmit;
         } else {
             disabled = true;
+            blur = null;
         }
 
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form
+                id="tag-form"
+                className="hidden"
+                onSubmit={this.handleSubmit}
+            >
                 <input
                     id="tag-name"
                     type="text"
                     onChange={this.handleInput()}
+                    onBlur={blur}
                     value={this.state.name}
                     placeholder="Add a tag"
                 />

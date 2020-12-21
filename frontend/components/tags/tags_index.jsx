@@ -5,10 +5,15 @@ import TagsIndexItemContainer from './tags_index_item_container';
 class TagsIndex extends React.Component {
     constructor(props) {
         super(props);
+        this.toggleTagForm = this.toggleTagForm.bind(this);
     }
 
     componentDidMount() {
         this.props.getTags();
+    }
+
+    toggleTagForm() {
+        document.getElementById("tag-form").classList.remove("hidden");
     }
 
     render() {
@@ -25,7 +30,10 @@ class TagsIndex extends React.Component {
         if (currentUser.id == photoOwnerId) {
             addTags = (
                 <button
-                    type="button">
+                    className="toggle-tag-form"
+                    onClick={this.toggleTagForm}
+                    type="button"
+                >
                     Add tags
                 </button>
             )
