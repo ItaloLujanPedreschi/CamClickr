@@ -9,11 +9,14 @@ class PhotoShow extends React.Component {
     constructor(props) {
         super(props);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleUndef = this.handleUndef.bind(this);
     }
 
     componentDidMount() {
         this.props.getUsers();
-        this.props.getPhoto(this.props.match.params.photoId);
+        this.props.getPhoto(this.props.match.params.photoId)
+            .then(null,
+                () => this.props.history.push(`/photos/${this.props.currentUser.id}`));
     }
 
     handleDelete(e) {
@@ -22,8 +25,15 @@ class PhotoShow extends React.Component {
             .then(this.props.history.push(`/photos/${this.props.currentUser.id}`));
     }
 
+    handleUndef() {
+        this.props.history.push(`/photos/${this.props.currentUser.id}`);
+    }
+
     render() {
         const { photo, currentUser } = this.props;
+        if (photo === undefined) {
+            this.handleUndef();
+        }
         const photoDelete = photo && photo.user_id == currentUser.id ? (
             <button
                 className="photo-delete-button"

@@ -7,16 +7,11 @@ class CommentsIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.handleDelete = this.handleDelete.bind(this);
-        // this.handleEdit = this.handleEdit.bind(this);
     }
 
     handleDelete() {
         this.props.deleteComment(this.props.comment.id);
     }
-
-    // handleEdit() {
-
-    // }
 
     render() {
         const { comment, currentUser } = this.props;
@@ -24,7 +19,7 @@ class CommentsIndexItem extends React.Component {
         let deleteComment;
         let editComment;
 
-        if (currentUser.id = comment.user_id) {
+        if (currentUser.id === comment.user_id) {
             deleteComment = (
                 <button
                     className="comment-delete-button"
