@@ -24,4 +24,4 @@ CamClickr is a Flickr inspired clone, meant to replicate its image hosting featu
 * Users can comment on images, comments can be deleted by the comment owner or photo owner
 * Tags can be added or removed from images by image owner
 
-![Photo Index Demo](https://github.com/ItaloLujanPedreschi/CamClickr/blob/master/app/assets/images/github-visuals/photo_index_demo.mp4)
+![Photo Index Demo](https://github.com/ItaloLujanPedreschi/CamClickr/blob/master/app/assets/images/github-visuals/photo_edit_demo.mp4)
