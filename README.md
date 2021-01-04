@@ -42,7 +42,7 @@ Multiple images can be uploaded at once for a more rapid user upload experience.
 
 The creation of an album required the ability to select and deselect images and for those images' styling to differ based on their state. The state included a photo_ids array to which the IDs of selected photos are added and deselected photos are removed. A conditional is used for this function. Vanilla DOM manipulation is used to add the "selected-for-album" class to the clicked image giving it the selected styling.
 ### Photo Selection
-```
+```javascript
 constructor(props) {
     super(props);
     this.state = {
