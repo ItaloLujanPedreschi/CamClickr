@@ -4,6 +4,7 @@ import { BiArrowBack } from 'react-icons/bi';
 import { CgTrash } from 'react-icons/cg';
 import CommentsIndexContainer from './../comments/comments_index_container';
 import TagsIndexContainer from './../tags/tags_index_container';
+import PhotoAlbumsContainer from './photo_albums_container';
 import { BiEdit } from 'react-icons/bi';
 
 class PhotoShow extends React.Component {
@@ -137,7 +138,7 @@ class PhotoShow extends React.Component {
                 backLink = `/photos/${photo.user_id}`
                 backLinkText = "photostream";
             }
-        
+
             return (
                 <div className="photo-container">
                     <div className="photo-show">
@@ -160,6 +161,7 @@ class PhotoShow extends React.Component {
                             <CommentsIndexContainer photoId={photo.id} photoOwnerId={photo.user_id} />
                         </div>
                         <div className="photo-social-right">
+                            <PhotoAlbumsContainer photo={photo} />
                             <TagsIndexContainer photoId={photo.id} photoOwnerId={photo.user_id} />
                         </div>
                     </div>

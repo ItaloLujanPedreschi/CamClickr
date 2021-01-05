@@ -55,11 +55,9 @@ class AlbumShow extends React.Component {
                         </div>
                     </div>
                     <div className="album-photos">
-                        {/* <div className="photo-array"> */}
-                            <div className="photo-grid">
-                                {album.photos.map(photo => <AlbumShowItem key={photo.id} photo={photo} displayName={currentUser.email.split("@")[0]} albumId={album.id} />)}
-                            </div>
-                        {/* </div> */}
+                        <div className="photo-grid">
+                            {album.photos.map(photo => <AlbumShowItem key={photo.id} photo={photo} displayName={currentUser.email.split("@")[0]} albumId={album.id} />)}
+                        </div>
                     </div>
                 </div>
             );
