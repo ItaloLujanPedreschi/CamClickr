@@ -3,7 +3,8 @@ import { deleteComment } from './../../actions/comment_actions';
 import CommentsIndexItem from './comments_index_item';
 
 const mapStateToProps = state => ({
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    users: state.entities.users
 })
 
 const mapDispatchToProps = dispatch => ({

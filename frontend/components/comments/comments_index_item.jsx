@@ -14,7 +14,8 @@ class CommentsIndexItem extends React.Component {
     }
 
     render() {
-        const { comment, currentUser, photoOwnerId } = this.props;
+        const { comment, users, currentUser, photoOwnerId } = this.props;
+        debugger;
     
         let deleteComment;
         let editComment;
@@ -46,7 +47,7 @@ class CommentsIndexItem extends React.Component {
         return (
             <div className="comment">
                 <div className="comment-content">
-                    <Link to={`/photos/${comment.user_id}`} className="comment-user">{currentUser.fname}</Link>
+                    <Link to={`/photos/${comment.user_id}`} className="comment-user">{users[comment.user_id].fname}</Link>
                     <p className="comment-body">{comment.body}</p>
                 </div>
                 <div className="comment-actions">
