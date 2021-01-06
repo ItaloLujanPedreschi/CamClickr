@@ -1,20 +1,20 @@
 import { connect } from 'react-redux';
-import { getPhoto, editPhoto, deletePhoto } from '../../actions/photo_actions';
+import { getPhotos, editPhoto, deletePhoto } from '../../actions/photo_actions';
 import { getUsers } from '../../actions/user_actions';
 import PhotoShow from './photo_show';
 
 const mapStateToProps = (state, ownProps) => {
-    const photo = state.entities.photos[ownProps.match.params.photoId]
     return {
-        photo: photo,
+        photoId: ownProps.match.params.photoId,
         users: state.entities.users,
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.entities.users[state.session.id],
+        photos: state.entities.photos
     }
 };
 
 const mapDispatchToProps = dispatch => ({
     getUsers: () => dispatch(getUsers()),
-    getPhoto: photoId => dispatch(getPhoto(photoId)),
+    getPhotos: () => dispatch(getPhotos()),
     editPhoto: (photoForm, id) => dispatch(editPhoto(photoForm, id)),
     deletePhoto: photoId => dispatch(deletePhoto(photoId))
 });

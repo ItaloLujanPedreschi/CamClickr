@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BiArrowBack } from 'react-icons/bi';
+import { BiArrowBack, BiEdit } from 'react-icons/bi';
 import { CgTrash } from 'react-icons/cg';
+import { GrPrevious, GrNext } from 'react-icons/gr';
 import CommentsIndexContainer from './../comments/comments_index_container';
 import TagsIndexContainer from './../tags/tags_index_container';
 import PhotoAlbumsContainer from './photo_albums_container';
-import { BiEdit } from 'react-icons/bi';
 
 class PhotoShow extends React.Component {
     constructor(props) {
@@ -23,7 +23,8 @@ class PhotoShow extends React.Component {
 
     componentDidMount() {
         this.props.getUsers();
-        this.props.getPhoto(this.props.match.params.photoId)
+        // this.props.getPhoto(this.props.match.params.photoId)
+        this.props.getPhotos()
             .then(null,
                 () => this.props.history.push(`/photos/${this.props.currentUser.id}`));
     }
@@ -60,8 +61,9 @@ class PhotoShow extends React.Component {
     }
 
     render() {
-        const { photo, currentUser } = this.props;
+        const { photoId, currentUser, users } = this.props;
 
+        let photo = this.props.photos[photoId];
         if (photo !== undefined) {
             const photoDelete = photo && photo.user_id == currentUser.id ? (
                 <button
@@ -126,17 +128,47 @@ class PhotoShow extends React.Component {
 
             let backLink;
             let backLinkText;
+            let photos;
 
             let path = this.props.location.pathname;
             if (path.includes("explore")) {
                 backLink = "/explore"
                 backLinkText = "explore";
+                photos = Object.values(this.props.photos);
             } else if (path.includes("album")) {
                 backLink = `/photos/${photo.user_id}/albums/${path.split("/")[5]}`
                 backLinkText = "album";
+                photos = Object.values(this.props.photos).filter(photo => {
+                    return photo.albums.some(album => {
+                        return album.id == path.split("/")[5];
+                    });
+                });
             } else {
                 backLink = `/photos/${photo.user_id}`
                 backLinkText = "photostream";
+                let photoUserId = photo.user_id;
+                photos = Object.values(this.props.photos).filter(photo => {
+                    return photo.user_id == photoUserId;
+                });
+            }
+
+            let currentPhotoIdx = photos.indexOf(photo);
+            let previousPhotoIdx = currentPhotoIdx - 1 < 0 ? photos.length - 1 : currentPhotoIdx - 1;
+            let nextPhotoIdx = currentPhotoIdx + 1 === photos.length ? 0 : currentPhotoIdx + 1;
+            let previousPhoto = photos[previousPhotoIdx];
+            let nextPhoto = photos[nextPhotoIdx];
+            let previousPhotoURL;
+            let nextPhotoURL;
+
+            if (path.includes("explore")) {
+                previousPhotoURL = `/photos/${users[previousPhoto.user_id].email.split("@")[0]}/${previousPhoto.id}/explore`;
+                nextPhotoURL = `/photos/${users[nextPhoto.user_id].email.split("@")[0]}/${nextPhoto.id}/explore`;
+            } else if (path.includes("album")) {
+                previousPhotoURL = `/photos/${users[previousPhoto.user_id].email.split("@")[0]}/${previousPhoto.id}/album/${this.props.location.pathname.split("/")[5]}`;
+                nextPhotoURL = `/photos/${users[nextPhoto.user_id].email.split("@")[0]}/${nextPhoto.id}/album/${this.props.location.pathname.split("/")[5]}`;
+            } else {
+                previousPhotoURL = `/photos/${users[previousPhoto.user_id].email.split("@")[0]}/${previousPhoto.id}/photostream`;
+                nextPhotoURL = `/photos/${users[nextPhoto.user_id].email.split("@")[0]}/${nextPhoto.id}/photostream`;
             }
 
             return (
@@ -145,7 +177,9 @@ class PhotoShow extends React.Component {
                         <div className="photo">
                             <img src={photo.photoUrl} alt={photo.description} />
                         </div>
-                        <Link to={backLink}><BiArrowBack />Back to {backLinkText}</Link>
+                        <Link className="back-url" to={backLink}><BiArrowBack />Back to {backLinkText}</Link>
+                        <Link className="previous-url" to={previousPhotoURL}><GrPrevious /></Link>
+                        <Link className="next-url" to={nextPhotoURL}><GrNext /></Link>
                         {photoDelete}
                     </div>
                     <div className="photo-info">
