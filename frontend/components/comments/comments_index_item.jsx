@@ -15,7 +15,6 @@ class CommentsIndexItem extends React.Component {
 
     render() {
         const { comment, users, currentUser, photoOwnerId } = this.props;
-        debugger;
     
         let deleteComment;
         let editComment;
