@@ -48,7 +48,14 @@ class UserShow extends React.Component {
         let display;
 
         if (this.props.location.pathname.includes("albums")) {
-            display = (
+            if (userAlbums.length === 0) {
+                display = (
+                    <div className="albums-body">
+                        <p>This user does not have any albums.</p>
+                    </div>
+                )
+            } else {
+                display = (
                     <div className="albums-body">
                         <div className="albums-toolbar">
                             <Link to="/photos/organize/new_set">
@@ -63,14 +70,23 @@ class UserShow extends React.Component {
                         </div>
                     </div>
                 )
+            }
         } else {
-            display = (
+            if (userPhotos.length === 0) {
+                display = (
+                    <div className="photo-array">
+                        <p>This user does not have any photos.</p>
+                    </div>
+                )
+            } else {
+                display = (
                     <div className="photo-array">
                         <div className="photo-grid">
                             {userPhotos.map(photo => <UserShowItem key={photo.id} photo={photo} displayName={user.email.split("@")[0]} />)}
                         </div>
                     </div>
                 )
+            }
         }
 
         return (
