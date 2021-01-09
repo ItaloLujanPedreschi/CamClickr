@@ -20,7 +20,7 @@ class PhotosIndex extends React.Component {
                     <div className="photo-array">
                         <h3 className="explore">Explore</h3>
                         <div className="photo-grid">
-                            {photos.map(photo => <PhotosIndexItem key={photo.id} photo={photo} displayName={this.props.users[photo.user_id].email.split("@")[0]} />)}
+                            {photos.map(photo => <PhotosIndexItem key={photo.id} photo={photo} displayName={users[photo.user_id].email.split("@")[0]} />)}
                         </div>
                     </div>
                 </div>

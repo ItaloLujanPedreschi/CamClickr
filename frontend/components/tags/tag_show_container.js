@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import { getPhotos } from '../../actions/photo_actions';
 import { getTags } from './../../actions/tag_actions';
-import { selectAllPhotos, selectAllTags } from './../../reducers/selectors';
+import { getUsers } from './../../actions/user_actions';
+import { selectAllTags } from './../../reducers/selectors';
 import TagShow from './tag_show';
 
 const mapStateToProps = state => ({

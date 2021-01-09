@@ -23,7 +23,7 @@ class PhotoShow extends React.Component {
 
     componentDidMount() {
         this.props.getUsers();
-        // this.props.getPhoto(this.props.match.params.photoId)
+        this.props.getTags();
         this.props.getPhotos()
             .then(null,
                 () => this.props.history.push(`/photos/${this.props.currentUser.id}`));
@@ -61,7 +61,7 @@ class PhotoShow extends React.Component {
     }
 
     render() {
-        const { photoId, currentUser, users } = this.props;
+        const { photoId, currentUser, users, tags } = this.props;
 
         let photo = this.props.photos[photoId];
         if (photo !== undefined) {
@@ -143,6 +143,18 @@ class PhotoShow extends React.Component {
                         return album.id == path.split("/")[5];
                     });
                 });
+            } else if (path.includes("tag")) {
+                backLink = `/photos/tag/${path.split("/")[5]}`
+                backLinkText = "tag";
+
+                let filteredTags = tags.filter(tag => tag.name === path.split("/")[5]);
+                let tagPhotoIds = filteredTags.map(tag => tag.photo_id);
+
+                photos = tagPhotoIds.map(photoId => {
+                    return (
+                        this.props.photos[photoId]
+                    )
+                })
             } else {
                 backLink = `/photos/${photo.user_id}`
                 backLinkText = "photostream";

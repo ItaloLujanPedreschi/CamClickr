@@ -7,10 +7,11 @@ class TagShowItem extends React.Component {
     }
 
     render() {
-        const { photo, displayName } = this.props;
+        const { photo, displayName, tag } = this.props;
+        debugger;
         return (
             <div className="photo-item">
-                <Link to={`/photos/${displayName}/${photo.id}/explore`}>
+                <Link to={`/photos/${displayName}/${photo.id}/tag/${tag}`}>
                     <img src={photo.photoUrl} alt={photo.description} />
                 </Link>
                 <div className="photo-overlay">
