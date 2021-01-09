@@ -8,7 +8,7 @@ class TagShowItem extends React.Component {
 
     render() {
         const { photo, displayName, tag } = this.props;
-        debugger;
+
         return (
             <div className="photo-item">
                 <Link to={`/photos/${displayName}/${photo.id}/tag/${tag}`}>

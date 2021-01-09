@@ -4,6 +4,7 @@ import TagShowItem from './tag_show_item';
 class TagShow extends React.Component {
     constructor(props) {
         super(props);
+        this.onlyUnique = this.onlyUnique.bind(this);
     }
 
     componentDidMount() {
@@ -12,21 +13,25 @@ class TagShow extends React.Component {
         this.props.getTags();
     }
 
+    onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+    }
+
     render() {
         const { photos, tags, users } = this.props;
 
         let tagName = this.props.location.pathname.split("/")[3];
         let filteredTags = tags.filter(tag => tag.name === tagName);
-        let tagPhotoIds = filteredTags.map(tag => tag.photo_id);
+        let tagPhotoIds = filteredTags.map(tag => tag.photo_id)
+        let uniqueTagPhotoIds = tagPhotoIds.filter(this.onlyUnique);
 
-        // debugger;
-        if (Object.keys(photos).length > 0 && tagPhotoIds > 0) {
+        if (Object.keys(photos).length > 0 && tagPhotoIds.length > 0) {
             return (
                 <div className="explore-background">
                     <div className="photo-array">
                         <h3 className="explore">{tagName}</h3>
                         <div className="photo-grid">
-                            {tagPhotoIds.map(photoId => {
+                            {uniqueTagPhotoIds.map(photoId => {
                                 return (
                                     <TagShowItem
                                         key={photoId}
