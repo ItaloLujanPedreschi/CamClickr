@@ -11,6 +11,12 @@ class CommentForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentWillUpdate() {
+        if (this.state.photo_id !== this.props.photoId) {
+            this.setState({ photo_id: this.props.photoId });
+        }
+    }
+
     handleInput() {
         return e => {
             e.preventDefault();
