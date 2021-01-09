@@ -51,7 +51,13 @@ class UserShow extends React.Component {
             if (userAlbums.length === 0) {
                 display = (
                     <div className="albums-body">
-                        <p>This user does not have any albums.</p>
+                        <div className="albums-toolbar">
+                            <Link to="/photos/organize/new_set">
+                                <IoIosAlbums />
+                                <p>New album</p>
+                            </Link>
+                        </div>
+                        <p className="no-album-text">This user does not have any albums.</p>
                     </div>
                 )
             } else {
