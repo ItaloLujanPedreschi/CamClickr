@@ -5,7 +5,7 @@ class Api::TagsController < ApplicationController
     end
 
     def show
-        @tag = Tag.find_by(id: params[:id])
+        @photos = Photo.find_by(id: params[:photo_id])
         render :show
     end
 

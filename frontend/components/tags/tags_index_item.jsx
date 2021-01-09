@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { VscClose } from 'react-icons/vsc';
 
 class TagsIndexItem extends React.Component {
@@ -33,7 +34,7 @@ class TagsIndexItem extends React.Component {
         return (
             <div className="tag-item">
                 <div className="tag">
-                    <p className="tag-name">{tag.name}</p>
+                    <Link to={`/photos/tag/${tag.name}`} className="tag-name">{tag.name}</Link>
                     {deleteTag}
                 </div>
             </div>
