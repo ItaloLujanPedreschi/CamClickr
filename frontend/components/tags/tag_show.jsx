@@ -13,8 +13,8 @@ class TagShow extends React.Component {
         this.props.getTags();
     }
 
-    onlyUnique(value, index, self) {
-        return self.indexOf(value) === index;
+    onlyUnique(val, idx, self) {
+        return self.indexOf(val) === idx;
     }
 
     render() {
