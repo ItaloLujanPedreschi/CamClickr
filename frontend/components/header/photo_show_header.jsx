@@ -56,7 +56,7 @@ class PhotoShowHeader extends React.Component {
                         </a>
                     </li>
                     <li className="header-link">
-                        <a href="https://www.linkedin.com/in/italo-lujan-98169373/" target="_blank">
+                        <a href="https://www.linkedin.com/in/italo-lujan-pedreschi-98169373/" target="_blank">
                             <AiFillLinkedin className="header-icon" />
                         </a>
                     </li>

@@ -16,7 +16,7 @@ export default ({ currentUser }) => {
                             </a>
                         </li>
                         <li className="footer-link">
-                            <a href="https://www.linkedin.com/in/italo-lujan-98169373/" target="_blank">
+                            <a href="https://www.linkedin.com/in/italo-lujan-pedreschi-98169373/" target="_blank">
                                 <AiFillLinkedin className="footer-icon" />
                             </a>
                         </li>
